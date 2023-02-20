@@ -1,0 +1,9 @@
+//user
+
+INSERT INTO "user" (status_active, email, password, role, creation_date, modification_date) VALUES ('TRUE', 'Admin', 'pbkdf2:sha256:260000$SdOaJc7GAMqyXNx3$a9fd7e11382977f4c3ab67da4e4c191e2fe959c0d2d8e6e0b8af2caf876b2dee', 'TRUE', '2017-07-23 00:00:45', '2017-07-23 00:54:00');
+
+//device
+
+INSERT INTO "device" (active, "name", creation_date, modification_date) VALUES ('TRUE', 'test',  '2017-07-23 00:00:45', '2017-07-23 00:54:00');
+
+INSERT INTO "location" (active,"name",creation_date,modification_date) VALUES ('TRUE', 'location_1',  '2017-07-23 00:00:45', '2017-07-23 00:54:00')

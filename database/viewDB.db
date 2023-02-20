@@ -1,0 +1,35 @@
+CREATE VIEW unit_view
+AS
+SELECT unit.id,unit.active,unit.name,unit.serial_number,unit.product_code,
+	   device.id,device.name,"operator".id,"operator".name
+   	   ,unit.description,unit.creation_date,unit.modification_date 
+fROM "unit" 
+JOIN "device" ON unit.device_id = device.id 
+JOIN "operator" ON unit.operator_id = "operator".id
+
+
+CREATE VIEW unit_location_view 
+AS
+SELECT "unit_location".id,"unit_location".description,"unit_location".unit_id
+	   , unit.name as unit_name,unit_location.location_id,"location".name as location_name, unit_location.customer_location_id
+	   ,customer_location.name as customer_location_name ,"unit_location".creation_date,"unit_location".modification_date 
+FROM "unit_location" 
+JOIN "unit" ON "unit_location".unit_id = unit.id 
+JOIN "location" ON "unit_location".location_id = location.id 
+JOIN customer_location ON "unit_location".customer_location_id = customer_location.id 
+
+CREATE OR REPLACE VIEW public.unit_location_history_view
+ AS
+ SELECT unit_location_history.id,
+    unit_location_history.description,
+    unit_location_history.unit_id,
+    unit.name AS unit_name,
+    unit_location_history.location_id,
+    location.name AS loaction_name,
+    unit_location_history.customer_location_id,
+    customer_location.name AS customer_location_name,
+    unit_location_history.creation_date
+   FROM unit_location_history
+     JOIN unit ON unit_location_history.unit_id = unit.id
+     JOIN location ON unit_location_history.location_id = location.id
+     JOIN customer_location ON unit_location_history.customer_location_id = customer_location.id;
