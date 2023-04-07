@@ -1,4 +1,4 @@
-import { MuiDeviceTable } from 'components/tables/components/device_table/MuiDeviceTable'
+import { MuiDeviceTable } from 'components/tables/components/device/MuiDeviceTable'
 import React, { useState, useEffect } from 'react';
 
 export function DeviceTable(){

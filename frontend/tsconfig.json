@@ -29,5 +29,8 @@
       // "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
     },
     "exclude": ["node_modules", "dist"],
-    "include": ["src/**/*","src/*"]
+    "include": [
+      "./src/**/*.ts",
+      "./src/**/*.tsx"
+, "src/components/Tables/Common/ColumnsOptions/Active/activeDisplay.tsxc/components/Tables/Common/ColumnsOptions/Active/activeOption.tss"    ]
   }

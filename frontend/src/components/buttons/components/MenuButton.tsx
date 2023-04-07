@@ -1,12 +1,12 @@
-import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
-import { Tooltip } from '@mui/material'
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Tooltip } from '@mui/material';
 
-import { IButtonProps } from '../models/IButtonProps'
+import { IButtonProps } from '../Models/IButtonProps';
 
-export function MenuButton({ handleAction }: IButtonProps) {
+export const MenuButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
   return (
-    <Tooltip title={'Open Menu'}>
+    <Tooltip title="Open Menu">
       <IconButton
         size="large"
         aria-label="account of current user"
@@ -14,9 +14,10 @@ export function MenuButton({ handleAction }: IButtonProps) {
         aria-haspopup="true"
         onClick={handleAction}
         color="inherit"
+        type={type}
       >
         <MenuIcon />
       </IconButton>
     </Tooltip>
-  )
-}
+  );
+};

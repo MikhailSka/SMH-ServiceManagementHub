@@ -1,10 +1,9 @@
 import IconButton from '@mui/material/IconButton';
-import AddIcon from "@material-ui/icons/Add";
 import { Tooltip } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import { IButtonProps } from '../Models/IButtonProps';
 
-import { IButtonProps } from '../models/IButtonProps';
-
-export function AddButton({ handleAction }: IButtonProps) {
+export const AddButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
     return (
         <Tooltip title={"Add Row"}>
             <IconButton
@@ -12,6 +11,7 @@ export function AddButton({ handleAction }: IButtonProps) {
                 aria-label="delete"
                 size="large"
                 onClick={handleAction}
+                type={type}
             >
                 <AddIcon fontSize="inherit" />
             </IconButton>

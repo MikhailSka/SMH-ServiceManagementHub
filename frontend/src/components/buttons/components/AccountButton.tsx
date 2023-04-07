@@ -2,9 +2,9 @@ import IconButton from '@mui/material/IconButton'
 import AccountCircle from '@mui/icons-material/AccountCircle'
 import { Tooltip } from '@mui/material'
 
-import { IButtonProps } from '../models/IButtonProps'
+import { IButtonProps } from '../Models/IButtonProps'
 
-export function AccountButton({ handleAction }: IButtonProps) {
+export const AccountButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
   return (
     <Tooltip title={'Account Options'}>
       <IconButton
@@ -14,6 +14,7 @@ export function AccountButton({ handleAction }: IButtonProps) {
         aria-haspopup="true"
         onClick={handleAction}
         color="inherit"
+        type={type}
       >
         <AccountCircle />
       </IconButton>

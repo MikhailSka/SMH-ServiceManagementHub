@@ -4,40 +4,38 @@ import { RouterProvider } from 'react-router-dom'
 import { createBrowserRouter } from 'react-router-dom'
 import { createRoutesFromElements } from 'react-router-dom'
 
-import { GlobalSpinner } from 'components/loading/components/GlobalSpinner '
-import { RootLayout } from 'views/RootLayout'
+import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner/LoadingSpinner'
+import { RootLayout } from './routes/hub/RootLayout'
 import { Home } from 'views/Home'
 import { TableRoutes } from './routes/TableRoutes'
-import { NotFound } from 'views/NotFound'
-import { DeviceTable } from 'views/tables/DeviceTable'
+import NotFoundPage from 'views/NotFound'
 const LazyDevice = React.lazy(
-  () => import('components/tables/components/device_table/MuiDeviceTable')
+  () => import('components/Tables/DeviceTable')
 )
-import { MuiDeviceTableLoader } from 'components/tables/components/device_table/MuiDeviceTableLoader'
-import { useDevices } from 'services/data/components/DeviceService'
+
+// import DeviceTable from 'components/Tables/DeviceTable/DeviceTable'
+import { DialogProvider } from 'components/Dialogs/Context/DialogContextProvider'
 
 export function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route
-          path="device"
-          element={
-            <React.Suspense fallback={<GlobalSpinner />}>
-              <LazyDevice />
-            </React.Suspense>
-          }
-          loader={MuiDeviceTableLoader}
-        />
-        {/*A nested route!*/}
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="device"
+            element={
+              <DialogProvider>
+                <React.Suspense fallback={<LoadingSpinner/>}>
+                  <LazyDevice />
+                </React.Suspense>
+              </DialogProvider>
+            }
+          />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
-      <Route path="*" element={<NotFound />} />
-    </Route>
     )
   )
-  return (
-    <RouterProvider router={router}/>
-  )
+  return <RouterProvider router={router} />
 }

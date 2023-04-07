@@ -1,19 +1,16 @@
-import Button from "@material-ui/core/Button";
+import { Button } from '@mui/material';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
-import { IButtonProps } from '../models/IButtonProps';
+import { IButtonProps } from '../Models/IButtonProps';
 
-export function ConfirmButton({ handleAction }: IButtonProps) {
+export const ConfirmButton: React.FC<IButtonProps> = ({ handleAction, type = 'submit' }) => {
   return (
     <Button
-      type='submit'
       variant="text"
-      fullWidth={true}
-      disableElevation={true}
-      style={{ color: '#4caf50' , marginTop: 2}}
+      style={{ color: '#4CAF50' }}
       startIcon={<TaskAltIcon />}
       onClick={handleAction}
-
+      type={type}
     >
       Confirm
     </Button>
