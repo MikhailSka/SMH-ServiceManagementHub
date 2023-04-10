@@ -1,18 +1,38 @@
-import { configureStore } from '@reduxjs/toolkit'
-import deviceReducer from './reducers/deviceReducer'
-import { DeviceState } from './reducers/deviceReducer'
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
+import { persistStore } from 'redux-persist';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+import deviceReducer from './reducers/deviceReducer/deviceReducer';
+import { DeviceState } from './reducers/deviceReducer/DeviceState';
+import authReducer from './reducers/authReducer/authReducer';
+import { AuthState } from './reducers/authReducer/AuthState';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['auth'],
+};
+
+const rootReducer = combineReducers({
+  device: deviceReducer,
+  auth: authReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: {
-    device: deviceReducer
-  }
-})
+  reducer: persistedReducer,
+});
 
-export default store
+const persistor = persistStore(store);
+
+export { store, persistor };
 
 export interface RootState {
   device: DeviceState;
-  // add other state slices as needed
+  auth: AuthState;
 }
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+
+export type AppDispatch = typeof store.dispatch;

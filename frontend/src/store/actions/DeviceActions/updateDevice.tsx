@@ -1,13 +1,13 @@
-import axios from 'axios'
-import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { ThunkAction } from 'redux-thunk'
+import { ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
 
-import { getDevicesFailure } from '../../reducers/deviceReducer'
+import { api } from 'config/apiConfig'
+import { getDevicesFailure } from '../../reducers/deviceReducer/deviceReducer'
 import { getDevices } from './getDevices'
-import { RootState } from 'store/store'
+import { RootState } from '../../store'
+import { getAccessToken } from 'config/getAssessToken'
 import { IDevice } from '../../../models/IDevice'
-
-const API_URL = 'http://127.0.0.1:5000/device'
 
 interface ApiResponse {
   data: IDevice[]
@@ -23,7 +23,9 @@ export const updateDevice =
   ): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
-      await axios.put<ApiResponse>(`${API_URL}/update/${device.id}`, device)
+      await api.put<ApiResponse>(`device/update/${device.id}`, device, {
+        headers: { Authorization: `Bearer ${getAccessToken()}` },
+      });
       dispatch(getDevices())
     } catch (error) {
       dispatch(getDevicesFailure((error as ApiError).message))

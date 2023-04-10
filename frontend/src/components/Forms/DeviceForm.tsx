@@ -4,11 +4,11 @@ import { useForm} from 'react-hook-form';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/Name/NameInput';
+import { NameInput } from 'components/Inputs/Components/NameInput/NameInput';
 import { ActiveInput } from 'components/Inputs/Components/ActiveInput/ActiveInput';
 import { useAppDispatch } from 'store/hooks';
-import { postDevice } from 'store/actions/DeviceActions/postDevice';
-import { updateDevice } from 'store/actions/DeviceActions/updateDevice';
+import { postDevice } from 'store/actions/deviceActions/postDevice';
+import { updateDevice } from 'store/actions/deviceActions/updateDevice';
 import { IDevice } from '../../models/IDevice';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 
@@ -44,7 +44,7 @@ export const DeviceForm: React.FC<FormProps> = ({ device }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <Box sx={{ p: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>

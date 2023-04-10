@@ -1,31 +1,28 @@
-import axios from 'axios'
-import { ThunkAction ,ThunkDispatch} from 'redux-thunk'
+import { ThunkDispatch } from 'redux-thunk'
+import { ThunkAction } from 'redux-thunk'
 import { AnyAction } from 'redux'
 
-import {
-  getDevicesFailure,
-} from '../../reducers/deviceReducer'
-import { RootState } from 'store/store'
+import { api } from 'config/apiConfig'
+import { RootState } from '../../store'
 import { getDevices } from './getDevices'
 import { IDevice } from '../../../models/IDevice'
-
-const API_URL = 'http://127.0.0.1:5000/device'
+import { getDevicesFailure } from '../../reducers/deviceReducer/deviceReducer'
+import { getAccessToken } from 'config/getAssessToken'
 
 interface ApiError {
   message: string
 }
 
-
 export const postDevice =
-  (device: IDevice): ThunkAction<
-  Promise<void>,
-  RootState,
-  undefined,
-  AnyAction
-> => async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
+  (
+    device: IDevice
+  ): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
+  async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
-      await axios.post(`${API_URL}/post`, device)
-      dispatch(getDevices()) 
+      await api.post(`device/post`, device, {
+        headers: { Authorization: `Bearer ${getAccessToken()}` },
+      });
+      dispatch(getDevices())
     } catch (error) {
       dispatch(getDevicesFailure((error as ApiError).message))
     }

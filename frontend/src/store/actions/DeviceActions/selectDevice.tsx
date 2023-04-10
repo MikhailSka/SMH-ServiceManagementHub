@@ -1,6 +1,6 @@
 import {
   selectDevice,
-} from '../../reducers/deviceReducer'
+} from '../../reducers/deviceReducer/deviceReducer'
 
 import { IDevice } from '../../../models/IDevice'
 

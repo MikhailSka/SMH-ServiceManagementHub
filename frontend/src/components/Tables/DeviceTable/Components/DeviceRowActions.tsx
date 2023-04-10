@@ -1,6 +1,6 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { useAppDispatch } from 'store/hooks'
-import { deleteDevice } from 'store/actions/DeviceActions/deteteDevice'
+import { deleteDevice } from 'store/actions/deviceActions/deteteDevice'
 import { Grid } from '@mui/material'
 import { Box } from '@mui/material'
 import { Typography } from '@mui/material'

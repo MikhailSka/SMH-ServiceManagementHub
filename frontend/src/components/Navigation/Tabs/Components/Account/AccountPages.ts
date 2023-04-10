@@ -1,11 +1,11 @@
 export const accountPages  = [
     {
         name: "Account",
-        link: "account"
+        link: "login"
     },
     {
         name: "Settings",
-        link: "settings"
+        link: "register"
     },
     {
         name: "Log Out",

@@ -1,29 +1,26 @@
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from '@reduxjs/toolkit';
-import axios from 'axios'
+import { ThunkAction, ThunkDispatch } from 'redux-thunk'
+import { AnyAction } from '@reduxjs/toolkit'
 
-import {
-  getDevicesFailure,
-} from '../../reducers/deviceReducer'
+import { getDevicesFailure } from '../../reducers/deviceReducer/deviceReducer'
 import { getDevices } from './getDevices'
-import { RootState } from 'store/store';
+import { RootState } from '../../store'
+import { getAccessToken } from 'config/getAssessToken'
+import { api } from 'config/apiConfig'
 import { IDevice } from '../../../models/IDevice'
-
-const API_URL = 'http://127.0.0.1:5000/device'
 
 interface ApiError {
   message: string
 }
 
 export const deleteDevice =
-  (device: IDevice): ThunkAction<
-  Promise<void>,
-  RootState,
-  undefined,
-  AnyAction
-> => async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
+  (
+    device: IDevice
+  ): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
+  async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
-      await axios.delete(`${API_URL}/delete/${device.id}`)
+      await api.delete(`device/delete/${device.id}`, {
+        headers: { Authorization: `Bearer ${getAccessToken()}` },
+      });
       dispatch(getDevices())
     } catch (error) {
       dispatch(getDevicesFailure((error as ApiError).message))

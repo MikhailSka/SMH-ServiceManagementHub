@@ -17,7 +17,7 @@ export const ActiveInput: React.FC<InputProps> = ({ errors, control, register })
             select
             label="Active"
             value={field.value}
-            fullWidth={true}
+            fullWidth
             size="small"
             margin="normal"
             error={!!errors.active?.message}

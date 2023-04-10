@@ -19,11 +19,11 @@
         "/*": ["./scr/*"],
         "assets/*": ["./src/assets/*"],
         "components/*": ["./src/components/*"],
-        "context/*": ["./src/context/*"],
-        "services/*": ["./src/services/*"],
+        "models/*": ["./src/models/*"],
+        "pages/*": ["./src/pages/*"],
         "store/*": ["./src/store/*"],
-        "utils/*": ["./src/utils/*"],
-        "views/*": ["./src/views/*"],
+        "routes/*": ["./src/routes/*"],
+        "config/*": ["./src/config/*"]
       }
       // "allowJs": true /* Allow javascript files to be compiled. Useful when migrating JS to TS */,
       // "checkJs": true /* Report errors in .js files. Works in tandem with allowJs. */,
