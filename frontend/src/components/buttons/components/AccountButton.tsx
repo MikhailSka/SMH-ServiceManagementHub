@@ -1,22 +1,26 @@
 import IconButton from '@mui/material/IconButton'
-import AccountCircle from '@mui/icons-material/AccountCircle'
+import { Avatar } from '@mui/material'
 import { Tooltip } from '@mui/material'
 
 import { IButtonProps } from '../Models/IButtonProps'
+import { useAppSelector } from 'store/hooks'
+import { RootState } from 'store/store'
 
-export const AccountButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
+export const AccountButton: React.FC<IButtonProps> = ({ handleAction, src }) => {
+  const { userData } = useAppSelector(
+    (state: RootState) => state.auth
+  )
   return (
-    <Tooltip title={'Account Options'}>
-      <IconButton
-        size="large"
-        aria-label="account of current user"
-        aria-controls="menu-appbar"
-        aria-haspopup="true"
-        onClick={handleAction}
-        color="inherit"
-        type={type}
-      >
-        <AccountCircle />
+    <Tooltip title={`Account: ${userData.email}`}>
+       <IconButton onClick={handleAction}>
+        <Avatar
+          src={src}
+          style={{
+            margin: '0px',
+            width: '40px',
+            height: '40px',
+          }}
+        />
       </IconButton>
     </Tooltip>
   )

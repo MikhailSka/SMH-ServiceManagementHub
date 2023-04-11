@@ -10,7 +10,9 @@ export const logout = (): ThunkAction<Promise<void>, RootState, undefined, AnyAc
     dispatch: ThunkDispatch<RootState, undefined, AnyAction>
   ) => {
     try {
-      await api.post('/logout');
+      await api.post('/logout',);
+      console.log("sdafsfsdf")
+      localStorage.removeItem('access_token');
       dispatch<LogoutSuccessAction>({
         type: 'LOGOUT_SUCCESS',
       });

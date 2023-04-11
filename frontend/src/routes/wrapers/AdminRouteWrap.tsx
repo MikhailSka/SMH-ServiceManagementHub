@@ -1,7 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { RootState } from '../../store/store'
+
+import { useAppSelector } from 'store/hooks'
 import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner/LoadingSpinner'
 
 interface AdminWrapProps {
@@ -9,7 +10,7 @@ interface AdminWrapProps {
 }
 
 export const AdminRouteWrap: React.FC<AdminWrapProps> = ({ children }) => {
-  const { isAuthenticated, userData } = useSelector(
+  const { isAuthenticated, userData } = useAppSelector(
     (state: RootState) => state.auth
   )
 

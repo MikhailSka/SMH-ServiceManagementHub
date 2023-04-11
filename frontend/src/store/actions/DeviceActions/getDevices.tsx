@@ -18,7 +18,6 @@ export const getDevices =
   (): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
-      console.log(getAccessToken())
       dispatch(getDevicesStart())
       const response = await api.get<IDevice[]>(`device/get`, {
         headers: { Authorization: `Bearer ${getAccessToken()}` },
