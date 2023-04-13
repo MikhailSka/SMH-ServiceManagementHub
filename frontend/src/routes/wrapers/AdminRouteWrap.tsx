@@ -11,17 +11,20 @@ interface AdminWrapProps {
 
 export const AdminRouteWrap: React.FC<AdminWrapProps> = ({ children }) => {
   const { isAuthenticated, userData } = useAppSelector(
-    (state: RootState) => state.auth
+    (state: RootState) => state.user
   )
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />
   }
-console.log(userData.role)
-console.log(userData.email)
-  if (userData.role !== 'admin') {
-    return <Navigate to="/unauthorized" />
+
+  if (!userData.active) {
+    return <Navigate to="/unactivated" />
   }
+
+  // if (!userData.admin) {
+  //   return <Navigate to="/unauthorized" />
+  // }
 
   return (
     <React.Suspense fallback={<LoadingSpinner />}>{children}</React.Suspense>

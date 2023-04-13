@@ -10,15 +10,17 @@ interface UserWrapProps {
 
 export const UserRouteWrap: React.FC<UserWrapProps> = ({ children }) => {
   const { isAuthenticated , userData} = useSelector(
-    (state: RootState) => state.auth
+    (state: RootState) => state.user
   )
-  console.log(userData.role)
-  console.log(userData.email)
-  console.log(isAuthenticated)
+
   if (!isAuthenticated) {
     return <Navigate to="/login" />
   }
 
+  if (!userData.active) {
+    return <Navigate to="/unactivated" />
+  }
+  
   return (
     <React.Suspense fallback={<LoadingSpinner />}>{children}</React.Suspense>
   )

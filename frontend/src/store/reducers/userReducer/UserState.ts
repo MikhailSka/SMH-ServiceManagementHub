@@ -1,9 +1,12 @@
 export interface UserData {
+    id: string
     email: string;
-    role: string;
+    admin: boolean;
+    image?: string;
+    active: boolean;
   }
   
-export interface AuthState {
+export interface UserState {
     isAuthenticated: boolean;
     userData: UserData;
   }

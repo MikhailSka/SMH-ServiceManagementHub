@@ -8,6 +8,7 @@ import { NavigationLayout } from 'pages/layouts/NavigationLayout'
 import { AdminRouteWrap } from './wrapers/AdminRouteWrap'
 import { UserRouteWrap } from './wrapers/UserRouteWrap'
 
+import UnactivatedPage from 'pages/errors/UnactivatedPage'
 import UnauthorizedPage from 'pages/errors/UnauthorizedPage'
 import NotFoundPage from 'pages/errors/NotFoundPage'
 import LoginPage from 'pages/auth/LoginPage'
@@ -15,6 +16,7 @@ import SingUpPage from 'pages/auth/SingUpPage'
 
 const HomePage = React.lazy(() => import('pages/user/Home'))
 const PostsPage = React.lazy(() => import('pages/user/Posts'))
+const SettingsPage = React.lazy(() => import('pages/user/Settings'))
 const DevicePage = React.lazy(() => import('pages/admin/DevicePage'))
 
 export const router = createBrowserRouter(
@@ -41,6 +43,14 @@ export const router = createBrowserRouter(
             }
           />
           <Route
+            path="settings"
+            element={
+              <UserRouteWrap>
+                <SettingsPage />
+              </UserRouteWrap>
+            }
+          />
+          <Route
             path="device"
             element={
               <AdminRouteWrap>
@@ -50,6 +60,7 @@ export const router = createBrowserRouter(
           />
         </Route>
       </Route>
+      <Route path="/unactivated" element={<UnactivatedPage />} />
       <Route path="/unauthorized" element={<UnauthorizedPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Route>

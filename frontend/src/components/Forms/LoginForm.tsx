@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "store/hooks";
 import { EmailInput } from "components/Inputs/Components/EmailInput/EmailInput";
 import { PasswordInput } from "components/Inputs/Components/PasswordInput/PasswordInput";
-import { login } from "store/actions/authActions/login";
+import { login } from "store/actions/userActions/login";
 import React from "react";
 
 interface LoginFormInputs {

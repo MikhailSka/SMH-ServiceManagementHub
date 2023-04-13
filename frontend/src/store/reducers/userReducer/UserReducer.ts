@@ -1,14 +1,17 @@
-import { AuthActionTypes } from "./AuthActionTypes";
-import { AuthState } from './AuthState';
-const initialState: AuthState = {
+import { UserActionTypes } from "./UserActionTypes";
+import { UserState } from './UserState';
+const initialState: UserState = {
   isAuthenticated: false,
   userData: {
+    id: '',
     email: '',
-    role: '',
+    admin: false,
+    image: '',
+    active: false,
   },
 };
 
-const authReducer = (state = initialState, action: AuthActionTypes): AuthState => {
+const userReducer = (state = initialState, action: UserActionTypes): UserState => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
       return {
@@ -22,8 +25,11 @@ const authReducer = (state = initialState, action: AuthActionTypes): AuthState =
         ...state,
         isAuthenticated: false,
         userData: {
+          id: '',
           email: '',
-          role: '',
+          admin: false,
+          image: '',
+          active: false,
         },
       };
 
@@ -33,10 +39,17 @@ const authReducer = (state = initialState, action: AuthActionTypes): AuthState =
         isAuthenticated: true,
         userData: action.payload,
       };
-      
+      case 'UPLOAD_IMAGE_SUCCESS':
+  return {
+    ...state,
+    userData: {
+      ...state.userData,
+      image: action.payload,
+    },
+  };
     default:
       return state;
   }
 };
 
-export default authReducer;
+export default userReducer;

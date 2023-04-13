@@ -9,11 +9,13 @@ import { SubmitHandler } from 'react-hook-form'
 
 import { useAppDispatch } from 'store/hooks'
 import { EmailInput } from 'components/Inputs/Components/EmailInput/EmailInput'
+import { NameInput } from 'components/Inputs/Components/NameInput/NameInput'
 import { PasswordInput } from 'components/Inputs/Components/PasswordInput/PasswordInput'
-import { register as registerAction } from 'store/actions/authActions/register'
+import { register as registerAction } from 'store/actions/userActions/register'
 
 interface SignUpFormInputs {
   email: string
+  name: string
   password: string
 }
 export const SignUpForm: React.FC = () => {
@@ -26,7 +28,7 @@ export const SignUpForm: React.FC = () => {
   } = useForm<SignUpFormInputs>()
 
   const onSubmit: SubmitHandler<SignUpFormInputs> = (data) => {
-    dispatch(registerAction(data.email, data.password))
+    dispatch(registerAction(data.email, data.name , data.password))
   }
 
   return (
@@ -54,6 +56,7 @@ export const SignUpForm: React.FC = () => {
           sx={{ mt: 1 }}
         >
           <EmailInput control={control} errors={errors} register={register} />
+          <NameInput control={control} errors={errors} register={register} />
           <PasswordInput
             control={control}
             errors={errors}

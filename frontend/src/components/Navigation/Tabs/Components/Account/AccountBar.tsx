@@ -7,22 +7,35 @@ import Divider from '@mui/material/Divider'
 import Settings from '@mui/icons-material/Settings'
 import Logout from '@mui/icons-material/Logout'
 import EmailIcon from '@mui/icons-material/Email';
+import { useNavigate } from 'react-router-dom'
 
+import { useAppSelector } from 'store/hooks'
 import { useAppDispatch } from 'store/hooks'
 import { AccountButton } from 'components/Buttons/Components/AccountButton'
 import { useTabContext } from '../../Context/useTabContext'
-import { logout as logoutAction } from 'store/actions/authActions/logout'
+import { logout as logoutAction } from 'store/actions/userActions/logout'
+import { RootState } from 'store/store'
 
 export const AccountBar: React.FC = () => {
   const { openTab, closeTab, tab } = useTabContext()
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const handleClick = () => {
+
+  const handleLogout = () => {
     dispatch(logoutAction());
   };
+  
+  const handleSettings = () => {
+    navigate("/settings");
+  };
 
+  const { userData } = useAppSelector(
+    (state: RootState) => state.user
+  )
+    // `data:image/jpeg;base64,${userData.image}`
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <AccountButton handleAction={openTab} src='https://i.redd.it/apoj9nusz3291.jpg'/>
+      <AccountButton handleAction={openTab} src={userData.image}/>
       <Menu
         id="account-menu"
         anchorEl={tab}
@@ -65,14 +78,14 @@ export const AccountBar: React.FC = () => {
           </ListItemIcon>
           Email
         </MenuItem>
-        <MenuItem onClick={closeTab}>
+        <MenuItem onClick={handleSettings}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClick}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

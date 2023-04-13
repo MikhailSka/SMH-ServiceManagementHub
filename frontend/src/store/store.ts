@@ -6,24 +6,30 @@ import storage from 'redux-persist/lib/storage';
 
 import deviceReducer from './reducers/deviceReducer/deviceReducer';
 import { DeviceState } from './reducers/deviceReducer/DeviceState';
-import authReducer from './reducers/authReducer/authReducer';
-import { AuthState } from './reducers/authReducer/AuthState';
+import userReducer from './reducers/userReducer/UserReducer';
+import { UserState } from './reducers/userReducer/UserState';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth'],
+  whitelist: ['user'],
 };
 
 const rootReducer = combineReducers({
   device: deviceReducer,
-  auth: authReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST'], 
+      },
+    }),
 });
 
 const persistor = persistStore(store);
@@ -32,7 +38,7 @@ export { store, persistor };
 
 export interface RootState {
   device: DeviceState;
-  auth: AuthState;
+  user: UserState;
 }
 
 export type AppDispatch = typeof store.dispatch;

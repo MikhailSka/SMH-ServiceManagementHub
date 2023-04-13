@@ -21,7 +21,7 @@ def get_devices():
 @jwt_required()
 def get_device(id):
     device = Device.query.get(id)
-    return device_schema.jsonify(device)
+    return device_schema.jsonify(device), 200
 
 
 @device.route('/post', methods=['POST'])
@@ -38,7 +38,7 @@ def add_device():
     db.session.add(new_device)
     db.session.commit()
 
-    return device_schema.jsonify(new_device)
+    return device_schema.jsonify(new_device), 200
 
 
 @device.route('/update/<id>', methods=['PUT'])
@@ -52,7 +52,7 @@ def update_device(id):
 
     db.session.commit()
 
-    return device_schema.jsonify(device)
+    return device_schema.jsonify(device), 200
 
 
 @device.route('/delete/<id>', methods=['DELETE'])
@@ -62,4 +62,4 @@ def delete_device(id):
     db.session.delete(device)
     db.session.commit()
 
-    return device_schema.jsonify(device)
+    return device_schema.jsonify(device), 200

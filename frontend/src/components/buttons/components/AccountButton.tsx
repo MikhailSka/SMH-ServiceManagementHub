@@ -8,7 +8,7 @@ import { RootState } from 'store/store'
 
 export const AccountButton: React.FC<IButtonProps> = ({ handleAction, src }) => {
   const { userData } = useAppSelector(
-    (state: RootState) => state.auth
+    (state: RootState) => state.user
   )
   return (
     <Tooltip title={`Account: ${userData.email}`}>

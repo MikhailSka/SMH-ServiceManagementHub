@@ -10,8 +10,12 @@ static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../
 
 app = Flask(__name__)
 app.config.from_object(Config)
-CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
-
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True,
+     allow_headers=[
+         'Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'],
+     expose_headers=['Content-Type', 'Authorization',
+                     'Access-Control-Allow-Credentials'],
+     allow_methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'])
 api = Api(app)
 app.url_map.strict_slashes = False
 
@@ -26,7 +30,6 @@ from .models.unit.routes import unit
 from .models.unit_location.routes import unit_location
 from .models.unit_location_history.routes import unit_location_history
 from .models.user.routes import user
-from .auth.routes.routes import auth_routes
 
 
 app.register_blueprint(customer)
@@ -38,4 +41,3 @@ app.register_blueprint(unit)
 app.register_blueprint(unit_location)
 app.register_blueprint(unit_location_history)
 app.register_blueprint(user)
-app.register_blueprint(auth_routes)
