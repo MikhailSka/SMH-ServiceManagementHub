@@ -4,7 +4,7 @@ import { TextField } from '@mui/material';
 import { InputProps } from 'components/Inputs/Models/InputProps';
 import { nameValidation } from 'components/Inputs/Validation/nameValidation';
 
-export const NameInput: React.FC<InputProps> = ({ errors, control, register }) => {
+export const NameInput: React.FC<InputProps> = ({ errors, control, register, onInputChange }) => {
     return (
       <Controller
         control={control}
@@ -15,6 +15,7 @@ export const NameInput: React.FC<InputProps> = ({ errors, control, register }) =
             label="Name"
             value={field.value}
             fullWidth={true}
+            onChange={onInputChange}
             size="small"
             margin="normal"
             error={!!errors.name?.message}

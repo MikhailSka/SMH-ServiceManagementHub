@@ -117,6 +117,17 @@ def upload_image(id):
     db.session.commit()
     return jsonify({"message": "Image uploaded successfully"}), 200
 
+@user.route('/remove-image/<id>', methods=['POST'])
+@jwt_required()
+def remove_image(id):
+    user = User.query.get(id)
+    if not user:
+        return {"error": "User not found"}, 404
+
+    user.image = None
+    db.session.commit()
+    return jsonify({"message": "Image removed successfully"}), 200
+
 @user.route('/logout', methods=['POST'])
 def logout():
     resp = jsonify({"message": "Logged out successfully"})
@@ -140,7 +151,7 @@ def login():
         return jsonify({"error": "Invalid email or password"}), 401
 
     access_token = create_access_token(identity=user.email, expires_delta=timedelta(
-        days=1), additional_claims={"id": user.id, "admin": user.admin, "active": user.active})
+        hours=1), additional_claims={"id": user.id, "admin": user.admin, "active": user.active, "name": user.name})
 
     resp = jsonify({'access_token': access_token, 'image': user.image})
     set_access_cookies(resp, access_token)

@@ -11,7 +11,7 @@ class User(db.Model):
     password = db.Column(db.String(128), nullable=False)
     admin = db.Column(db.Boolean, nullable=False)
     name = db.Column(db.String(128), unique=True, nullable=False)
-    image = db.Column(db.Text, nullable=True)  # Changed from image_path
+    image = db.Column(db.Text, nullable=True)  
     creation_date = db.Column(db.DateTime, unique=True, nullable=False, default=datetime.now())
     modification_date = db.Column(db.DateTime, unique=True, nullable=False, default=datetime.now())
 

@@ -5,7 +5,7 @@ import MUIDataTable from 'mui-datatables'
 import { MUIDataTableBody } from 'mui-datatables'
 import { Box } from '@mui/material'
 
-import { useTableStyle } from '../../Styles/TableStyle'
+import { useStyles } from '../../../../useStyles'
 import { useAppDispatch } from 'store/hooks'
 import { useAppSelector } from 'store/hooks'
 import { getDevices } from 'store/actions/deviceActions/getDevices'
@@ -27,7 +27,7 @@ const DeviceTable: React.FC = () => {
 
   const columns = useDeviceTableColumns(devices);
 
-  const classes = useTableStyle()
+  const classes = useStyles()
 
   const BodyComponent = useMemo(
     () => (props: MUIDataTableBody) =>
@@ -36,7 +36,7 @@ const DeviceTable: React.FC = () => {
   )
 
   return (
-    <Box className={classes.table}>
+    <Box className={classes.box}>
       <MUIDataTable
         title={'Devices'}
         data={devices}

@@ -4,7 +4,7 @@ import { TextField } from '@mui/material';
 import { InputProps } from 'components/Inputs/Models/InputProps';
 import { emailValidation } from 'components/Inputs/Validation/emailValidation';
 
-export const EmailInput: React.FC<InputProps> = ({ errors, control, register }) => {
+export const EmailInput: React.FC<InputProps> = ({ errors, control, register, onInputChange }) => {
     return (
       <Controller
         control={control}
@@ -12,6 +12,7 @@ export const EmailInput: React.FC<InputProps> = ({ errors, control, register }) 
         rules={emailValidation}
         render={({ field }) => (
           <TextField
+            onChange={onInputChange}
             label="Email Address"
             value={field.value}
             fullWidth={true}

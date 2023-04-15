@@ -48,10 +48,10 @@ export const DeviceForm: React.FC<FormProps> = ({ device }) => {
       <Box sx={{ p: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <NameInput control={control} errors={errors} register={register} />
+            <NameInput control={control} errors={errors} register={register}/>
           </Grid>
           <Grid item xs={12}>
-            <ActiveInput control={control} errors={errors} register={register} />
+            <ActiveInput control={control} errors={errors} register={register}/>
           </Grid>
           <Grid item xs={12} container justifyContent="flex-end">
             <ConfirmButton handleAction={handleSubmit(onSubmit)} />

@@ -14,6 +14,9 @@ export interface LogoutSuccessAction {
   type: 'LOGOUT_SUCCESS';
 }
 
+export interface RemoveImageSuccessAction {
+  type: 'REMOVE_IMAGE_SUCCESS';
+}
 export interface UploadImageSuccessAction {
   type: 'UPLOAD_IMAGE_SUCCESS';
   payload: string;
@@ -22,4 +25,5 @@ export type UserActionTypes =
   LoginSuccessAction
   | LogoutSuccessAction
   | RegisterSuccessAction
-  | UploadImageSuccessAction;
+  | UploadImageSuccessAction
+  | RemoveImageSuccessAction;

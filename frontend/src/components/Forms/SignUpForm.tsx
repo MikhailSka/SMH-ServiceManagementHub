@@ -28,7 +28,7 @@ export const SignUpForm: React.FC = () => {
   } = useForm<SignUpFormInputs>()
 
   const onSubmit: SubmitHandler<SignUpFormInputs> = (data) => {
-    dispatch(registerAction(data.email, data.name , data.password))
+    dispatch(registerAction(data.email, data.name, data.password))
   }
 
   return (
@@ -55,8 +55,16 @@ export const SignUpForm: React.FC = () => {
           noValidate
           sx={{ mt: 1 }}
         >
-          <EmailInput control={control} errors={errors} register={register} />
-          <NameInput control={control} errors={errors} register={register} />
+          <EmailInput
+            control={control}
+            errors={errors}
+            register={register}
+          />
+          <NameInput
+            control={control}
+            errors={errors}
+            register={register}
+          />
           <PasswordInput
             control={control}
             errors={errors}

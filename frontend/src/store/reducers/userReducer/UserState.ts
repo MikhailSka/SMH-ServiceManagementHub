@@ -2,7 +2,8 @@ export interface UserData {
     id: string
     email: string;
     admin: boolean;
-    image?: string;
+    name: string;
+    image?: string | null;
     active: boolean;
   }
   

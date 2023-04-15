@@ -6,6 +6,7 @@ const initialState: UserState = {
     id: '',
     email: '',
     admin: false,
+    name: '',
     image: '',
     active: false,
   },
@@ -28,6 +29,7 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
           id: '',
           email: '',
           admin: false,
+          name: '',
           image: '',
           active: false,
         },
@@ -39,14 +41,22 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
         isAuthenticated: true,
         userData: action.payload,
       };
-      case 'UPLOAD_IMAGE_SUCCESS':
-  return {
-    ...state,
-    userData: {
-      ...state.userData,
-      image: action.payload,
-    },
-  };
+    case 'UPLOAD_IMAGE_SUCCESS':
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          image: action.payload,
+        },
+      };
+    case 'REMOVE_IMAGE_SUCCESS':
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          image: null,
+        },
+      };
     default:
       return state;
   }

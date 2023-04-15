@@ -24,6 +24,7 @@ export const login = (
       id: decodedToken.id,
       email: decodedToken.sub,
       admin: decodedToken.admin,
+      name: decodedToken.name,
       image: image,
       active: decodedToken.active,
     };

@@ -1,24 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Box } from '@mui/material';
 import { ClimbingBoxLoader } from 'react-spinners';
+
+import { useStyles } from '../../../useStyles';
 
 interface Props {
   color?: string;
   size?: number;
 }
 
-const SpinnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-`;
-
 const LoadingSpinner: React.FC<Props> = ({ color = '#262626', size = 20 }) => {
+  const classes = useStyles()
   return (
-    <SpinnerContainer>
+    <Box className={classes.center}>
       <ClimbingBoxLoader color={color} size={size} />
-    </SpinnerContainer>
+    </Box>
   );
 };
 
