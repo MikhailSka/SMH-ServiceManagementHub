@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 export const useStyles = makeStyles(() => ({
   box: {
     background:'#ffffff',
-    maxWidth: '85%',
+    maxWidth: '75%',
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '1.5%',

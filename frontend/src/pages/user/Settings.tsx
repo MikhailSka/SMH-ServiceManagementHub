@@ -5,7 +5,7 @@ import { RootState } from 'store/store'
 import { useStyles } from '../../useStyles'
 import { uploadImage } from 'store/actions/userActions/uploadImage'
 import imageCompression from 'browser-image-compression'
-import { Typography, Box, Input, Grid } from '@mui/material'
+import { Typography, Box, Input, Grid, Avatar} from '@mui/material'
 import IconButton from '@mui/material/IconButton'
 import UploadIcon from '@mui/icons-material/Upload'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -56,7 +56,7 @@ export default function Settings() {
       name: userData.name,
     },
   })
-  
+
   const {
     control: controlEmail,
     register: registerEmail,
@@ -90,104 +90,111 @@ export default function Settings() {
         Settings
       </Typography>
 
-      <Typography variant="h6" component="h2" gutterBottom>
-        Profile Image
-      </Typography>
-
-      {userData.image && (
-        <Box
-          sx={{
-            boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
-            order: '1px solid #ccc',
-            padding: '4px',
-            borderRadius: '4px',
-            display: 'inline-block',
-          }}
-        >
-          <img alt="not found" width={'250px'} src={userData.image} />
-        </Box>
-      )}
-
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        <Input
-          id="image"
-          name="image"
-          type="file"
-          sx={{
-            display: 'none',
-          }}
-          onChange={handleImageUpload}
-        />
-        <label htmlFor="image">
-          <IconButton color="primary" component="span">
-            <UploadIcon />
-          </IconButton>
-        </label>
-        {userData.image && (
-          <IconButton
-            color="error"
-            onClick={() => dispatch(removeImage(userData.id))}
-            aria-label="remove image"
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={4}>
+          <Typography variant="h6" component="h3" sx={{
+          textAlign: 'center',
+        }} gutterBottom>
+            Profile Image
+          </Typography>
+              <Avatar
+            src={userData.image!}
+            style={{
+              marginBottom: '25px',
+              marginTop: '25px',
+              marginRight:'50px',
+              marginLeft:'50px',
+              width: '200px',
+              height: '200px',
+            }}
+          />
+    
+          <Grid
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              textAlign: 'center',
+              justifyContent: 'flex-end',
+            }}
           >
-            <DeleteIcon />
-          </IconButton>
-        )}
-      </Box>
-      <Box
-        component="form"
-        onSubmit={handleSubmitName(onSubmitName)}
-        noValidate
-      >
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item xs={8}>
-            <NameInput
-              control={controlName}
-              errors={errorsName}
-              register={registerName}
+            <Input
+              id="image"
+              name="image"
+              type="file"
+              sx={{
+                display: 'none',
+              }}
+              onChange={handleImageUpload}
             />
-          </Grid>
-          <Grid item xs={4}>
-            <Button
-              type="submit"
-              variant="contained"
-              disabled={userData.name === watchName('name')}
-            >
-              Update Name
-            </Button>
+            <label htmlFor="image">
+              <IconButton color="primary" component="span">
+                <UploadIcon />Upload
+              </IconButton>
+            </label>
+            {userData.image && (
+              <IconButton
+                color="error"
+                onClick={() => dispatch(removeImage(userData.id))}
+                aria-label="remove image"
+              >
+                <DeleteIcon />
+              </IconButton>
+            )}
           </Grid>
         </Grid>
-      </Box>
 
-      <Box
-        component="form"
-        onSubmit={handleSubmitEmail(onSubmitEmail)}
-        noValidate
-      >
-        <Grid container alignItems="center" spacing={2}>
-          <Grid item xs={8}>
-            <EmailInput
-              control={controlEmail}
-              errors={errorsEmail}
-              register={registerEmail}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <Button
-              type="submit"
-              variant="contained"
-              disabled={userData.email === watchEmail('email')}
-            >
-              Update Email
-            </Button>
-          </Grid>
+        <Grid item xs={12} md={8}>
+          <Box
+            component="form"
+            onSubmit={handleSubmitName(onSubmitName)}
+            noValidate
+          >
+            <Grid container alignItems="center" spacing={2}>
+              <Grid item xs={8}>
+                <NameInput
+                  control={controlName}
+                  errors={errorsName}
+                  register={registerName}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  disabled={userData.name === watchName('name')}
+                >
+                  Change
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
+
+          <Box
+            component="form"
+            onSubmit={handleSubmitEmail(onSubmitEmail)}
+            noValidate
+          >
+            <Grid container alignItems="center" spacing={2}>
+              <Grid item xs={8}>
+                <EmailInput
+                  control={controlEmail}
+                  errors={errorsEmail}
+                  register={registerEmail}
+                />
+              </Grid>
+              <Grid item xs={4}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  disabled={userData.email === watchEmail('email')}
+                >
+                  Change
+                </Button>
+              </Grid>
+            </Grid>
+          </Box>
         </Grid>
-      </Box>
-
+      </Grid>
     </Box>
   )
 }

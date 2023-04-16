@@ -35,7 +35,7 @@ export const AccountBar: React.FC = () => {
     // `data:image/jpeg;base64,${userData.image}`
   return (
     <Box sx={{ flexGrow: 0 }}>
-      <AccountButton handleAction={openTab} src={userData.image}/>
+      <AccountButton handleAction={openTab} src={userData.image!}/>
       <Menu
         id="account-menu"
         anchorEl={tab}
