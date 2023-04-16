@@ -33,6 +33,35 @@ def get_user(id):
     user = User.query.get(id)
     return user_schema.jsonify(user), 200
 
+@user.route('/update-name/<id>', methods=['PUT'])
+@jwt_required()
+def update_user_name(id):
+    user = User.query.get(id)
+
+    name = request.json['name']
+    modification_date = datetime.now()
+
+    user.name = name
+    user.modification_date = modification_date
+
+    db.session.commit()
+
+    return user_schema.jsonify(user), 200
+
+@user.route('/update-email/<id>', methods=['PUT'])
+@jwt_required()
+def update_user_email(id):
+    user = User.query.get(id)
+
+    email = request.json['email']
+    modification_date = datetime.now()
+
+    user.email = email
+    user.modification_date = modification_date
+
+    db.session.commit()
+
+    return user_schema.jsonify(user), 200
 
 @user.route('/update/<id>', methods=['PUT'])
 @jwt_required()

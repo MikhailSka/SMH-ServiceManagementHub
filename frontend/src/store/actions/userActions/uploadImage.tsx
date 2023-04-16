@@ -2,6 +2,7 @@ import { api } from 'config/apiConfig';
 import { ThunkAction } from 'redux-thunk';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+
 import { RootState } from '../../store';
 import { UploadImageSuccessAction } from '../../reducers/userReducer/UserActionTypes'
 import { getAccessToken } from 'config/getAssessToken';

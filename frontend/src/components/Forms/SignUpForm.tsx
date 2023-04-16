@@ -7,6 +7,7 @@ import Container from '@mui/material/Container'
 import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form'
 
+import { useStyles } from '../../useStyles'
 import { useAppDispatch } from 'store/hooks'
 import { EmailInput } from 'components/Inputs/Components/EmailInput/EmailInput'
 import { NameInput } from 'components/Inputs/Components/NameInput/NameInput'
@@ -19,6 +20,7 @@ interface SignUpFormInputs {
   password: string
 }
 export const SignUpForm: React.FC = () => {
+  const classes = useStyles()
   const dispatch = useAppDispatch()
   const {
     control,
@@ -34,17 +36,7 @@ export const SignUpForm: React.FC = () => {
   return (
     <Container component="main" maxWidth="sm">
       <Box
-        sx={{
-          boxShadow: 3,
-          borderRadius: 2,
-          px: 4,
-          py: 6,
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          background: '#ffffff',
-        }}
+        className={classes.registerBox}
       >
         <Typography component="h1" variant="h5">
           Sign Up

@@ -57,6 +57,23 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
           image: null,
         },
       };
+      case 'UPDATE_USER_NAME_SUCCESS':
+        return {
+          ...state,
+          userData: {
+            ...state.userData,
+            name: action.payload.name,
+          },
+        };
+  
+      case 'UPDATE_USER_EMAIL_SUCCESS':
+        return {
+          ...state,
+          userData: {
+            ...state.userData,
+            email: action.payload.email,
+          },
+        };
     default:
       return state;
   }

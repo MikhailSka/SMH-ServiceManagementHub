@@ -8,11 +8,11 @@ import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
+import { useStyles } from '../../useStyles'
 import { useAppDispatch } from 'store/hooks'
 import { EmailInput } from 'components/Inputs/Components/EmailInput/EmailInput'
 import { PasswordInput } from 'components/Inputs/Components/PasswordInput/PasswordInput'
 import { login } from 'store/actions/userActions/login'
-import React from 'react'
 
 interface LoginFormInputs {
   email: string
@@ -20,6 +20,7 @@ interface LoginFormInputs {
 }
 
 export const LoginForm: React.FC = () => {
+  const classes = useStyles()
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const {
@@ -41,17 +42,7 @@ export const LoginForm: React.FC = () => {
   return (
     <Container component="main" maxWidth="sm">
       <Box
-        sx={{
-          boxShadow: 3,
-          borderRadius: 2,
-          px: 4,
-          py: 6,
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          background: '#ffffff',
-        }}
+        className={classes.registerBox}
       >
         <Typography component="h1" variant="h5">
           Sign in
