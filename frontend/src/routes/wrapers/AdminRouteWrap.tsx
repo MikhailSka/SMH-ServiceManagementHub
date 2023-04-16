@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { RootState } from '../../store/store'
 
 import { useAppSelector } from 'store/hooks'
-import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner/LoadingSpinner'
+import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner'
 
 interface AdminWrapProps {
   children: React.ReactNode

@@ -9,7 +9,7 @@ import { TrashButton } from 'components/Buttons/Components/TrashButton'
 import { PenButton } from 'components/Buttons/Components/PenButton'
 import { DeleteButton } from 'components/Buttons/Components/DeleteButton'
 import { IDevice } from '../../../../models/IDevice'
-import { DeviceForm } from 'components/Forms/DeviceForm'
+import { DeviceForm } from 'components/Forms/DeviceForm/DeviceForm'
 
 interface DeviceRowActionsProps {
   device: IDevice

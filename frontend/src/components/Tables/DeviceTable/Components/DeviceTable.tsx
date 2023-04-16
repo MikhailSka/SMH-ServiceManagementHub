@@ -10,7 +10,7 @@ import { useAppDispatch } from 'store/hooks'
 import { useAppSelector } from 'store/hooks'
 import { getDevices } from 'store/actions/deviceActions/getDevices'
 import { RootState } from '../../../../store/store'
-import { useDeviceTableColumns } from '../hooks/useDeviceTableColumns'
+import { useDeviceTableColumns } from './useDeviceTableColumns'
 import LoadingTableBody from '../../Common/LoadingTableBody'
 import DeviceTableToolbar from './DeviceTableToolbar'
 

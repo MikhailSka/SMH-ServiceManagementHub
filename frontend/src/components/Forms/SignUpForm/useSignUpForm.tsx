@@ -1,0 +1,26 @@
+import { SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { useAppDispatch } from 'store/hooks';
+import { register as registerAction } from 'store/actions/userActions/register';
+
+interface SignUpFormInputs {
+  email: string;
+  name: string;
+  password: string;
+}
+
+export const useSignUpForm = () => {
+  const dispatch = useAppDispatch();
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpFormInputs>();
+
+  const onSubmit: SubmitHandler<SignUpFormInputs> = (data) => {
+    dispatch(registerAction(data.email, data.name, data.password));
+  };
+
+  return { control, handleSubmit, register, errors, onSubmit };
+};

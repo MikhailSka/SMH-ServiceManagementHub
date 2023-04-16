@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { ClimbingBoxLoader } from 'react-spinners';
 
-import { useStyles } from '../../../useStyles';
+import { useStyles } from '../../useStyles';
 
 interface Props {
   color?: string;

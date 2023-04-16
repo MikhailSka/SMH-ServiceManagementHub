@@ -1,7 +1,7 @@
 import { MUIDataTableColumn } from 'mui-datatables';
 import { getDateOptions } from 'components/Tables/Common/ColumnsOptions/Date/dateOption';
 import { getActiveOptions } from 'components/Tables/Common/ColumnsOptions/Active/activeOption';
-import DeviceRowActions from '../Components/DeviceRowActions';
+import DeviceRowActions from './DeviceRowActions';
  
 export const useDeviceTableColumns = (devices: any[]) => {
     const columns: MUIDataTableColumn[] = [

@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { RootState } from '../../store/store'
-import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner/LoadingSpinner'
+import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner'
 
 interface UserWrapProps {
   children: React.ReactNode
