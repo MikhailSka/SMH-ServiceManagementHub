@@ -14,8 +14,7 @@ import NotFoundPage from 'pages/errors/NotFoundPage'
 import LoginPage from 'pages/auth/LoginPage'
 import SingUpPage from 'pages/auth/SingUpPage'
 
-const HomePage = React.lazy(() => import('pages/user/Home'))
-const PostsPage = React.lazy(() => import('pages/user/Posts'))
+const HomePage = React.lazy(() => import('pages/user/HomePage'))
 const SettingsPage = React.lazy(() => import('pages/user/Settings'))
 const DevicePage = React.lazy(() => import('pages/admin/DevicePage'))
 
@@ -34,14 +33,14 @@ export const router = createBrowserRouter(
               </UserRouteWrap>
             }
           />
-          <Route
+          {/* <Route
             path="posts"
             element={
               <UserRouteWrap>
                 <PostsPage />
               </UserRouteWrap>
             }
-          />
+          /> */}
           <Route
             path="settings"
             element={
