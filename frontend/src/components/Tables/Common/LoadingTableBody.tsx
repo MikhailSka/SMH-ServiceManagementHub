@@ -5,19 +5,12 @@ import {
   Typography,
   TableBody as MuiTableBody
 } from '@mui/material';
-import { makeStyles, createStyles } from '@mui/styles';
+
+import { useStyles } from '../../../useStyles';
 
 interface Props extends MUIDataTableBody {
   loading: boolean;
 }
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    loading: {
-      textAlign: 'center'
-    }
-  })
-);
 
 const LoadingTableBody = ({ loading, options, columns, ...others }: Props) => {
   // @ts-ignore

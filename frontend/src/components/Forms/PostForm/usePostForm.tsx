@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { updatePost } from 'store/actions/postActions/updatePost';
+import { addPost } from 'store/actions/postActions/addPost';
 import { useAppDispatch } from 'store/hooks';
-//import { createPost, updatePost } from 'store/actions/postActions';
+import { useAppSelector } from 'store/hooks';
 import { IPost } from '../../../models/IPost';
 
 interface UsePostFormProps {
@@ -10,6 +12,7 @@ interface UsePostFormProps {
 
 export const usePostForm = ({ post }: UsePostFormProps) => {
   const dispatch = useAppDispatch();
+  const userData = useAppSelector((state) => state.user.userData)
   const {
     control,
     handleSubmit,
@@ -27,11 +30,13 @@ export const usePostForm = ({ post }: UsePostFormProps) => {
   }, [post, reset]);
 
   const onSubmit = (data: IPost) => {
+    
     if (post) {
       data.id = post.id;
-      //dispatch(updatePost(data));
+      dispatch(updatePost(data));
     } else {
-      //dispatch(createPost(data));
+      data.user_id = userData.id
+      dispatch(addPost(data));
     }
   };
 

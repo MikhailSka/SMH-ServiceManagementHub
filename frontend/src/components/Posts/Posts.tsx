@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Masonry } from '@mui/lab'
-import { Container } from '@mui/material'
+import { Container, CircularProgress, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
-import { useAppSelector } from 'store/hooks'
-import { posts } from './data'
 import { Post } from 'components/Posts/Post'
 import { useStyles } from '../../useStyles'
+import { useAppDispatch } from 'store/hooks'
+import { useAppSelector } from 'store/hooks'
 import { getRandomColor } from '../../hooks/getRandomColor'
 import { PostsToolbar } from 'components/Posts/PostsToolbar'
+import { getPosts } from 'store/actions/postActions/getPosts'
 
 export const Posts: React.FC = () => {
   const theme = useTheme()
+  const dispatch = useAppDispatch()
   const userData = useAppSelector((state) => state.user.userData)
+  const { isLoading, posts } = useAppSelector((state) => state.post)
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'))
   const classes = useStyles()
@@ -25,19 +28,43 @@ export const Posts: React.FC = () => {
     columns = 2
   }
 
+  useEffect(() => {
+    dispatch(getPosts())
+  }, [])
+
   return (
-    <Container className={classes.box}>
+    <Container className={classes.box} sx={{ padding: '4px' }}>
       <PostsToolbar />
-      <Masonry columns={columns} spacing={1}>
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            post={post}
-            userData={userData}
-            backgroundColor={getRandomColor()}
-          />
-        ))}
-      </Masonry>
+
+      {isLoading ? (
+        <Typography
+          variant="body1"
+          className={classes.loading}
+          component={'div'}
+        >
+          <CircularProgress />
+        </Typography>
+      ) : posts.length != 0 ? (
+        <Masonry columns={columns} spacing={1}>
+          {posts.map((post) => (
+            <Post
+              key={post.id}
+              post={post}
+              userData={userData}
+              backgroundColor={getRandomColor()}
+            />
+          ))}
+        </Masonry>
+      ) : (
+        <Typography
+          variant="h4"
+          className={classes.loading}
+          margin={10}
+          component={'div'}
+        >
+          There is no posts, add one ;)
+        </Typography>
+      )}
     </Container>
   )
 }

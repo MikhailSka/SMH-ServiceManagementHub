@@ -4,6 +4,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { RootState } from '../../store';
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { LogoutSuccessAction } from '../../reducers/userReducer/UserActionTypes'
 
 
@@ -17,6 +18,6 @@ export const logout = (): ThunkAction<Promise<void>, RootState, undefined, AnyAc
       type: 'LOGOUT_SUCCESS',
     });
   } catch (error) {
-    console.error('Logout error:', error);
+      dispatch(showSnackbar('An error occurred while logout', 'error'));
   }
 };

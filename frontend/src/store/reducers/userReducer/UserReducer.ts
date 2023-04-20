@@ -1,5 +1,6 @@
 import { UserActionTypes } from "./UserActionTypes";
 import { UserState } from './UserState';
+
 const initialState: UserState = {
   isAuthenticated: false,
   userData: {

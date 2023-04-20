@@ -1,16 +1,12 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from '@reduxjs/toolkit'
 
-import { getDevicesFailure } from '../../reducers/deviceReducer/deviceReducer'
+import { showSnackbar } from '../snackbarActions/showSnackbar'
 import { getDevices } from './getDevices'
 import { RootState } from '../../store'
 import { getAccessToken } from 'config/getAssessToken'
 import { api } from 'config/apiConfig'
 import { IDevice } from '../../../models/IDevice'
-
-interface ApiError {
-  message: string
-}
 
 export const deleteDevice =
   (
@@ -20,9 +16,9 @@ export const deleteDevice =
     try {
       await api.delete(`device/delete/${device.id}`, {
         headers: { Authorization: `Bearer ${getAccessToken()}` },
-      });
+      })
       dispatch(getDevices())
     } catch (error) {
-      dispatch(getDevicesFailure((error as ApiError).message))
+      dispatch(showSnackbar('Server Error :(', 'error'))
     }
   }

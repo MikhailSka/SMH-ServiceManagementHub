@@ -8,6 +8,10 @@ import deviceReducer from './reducers/deviceReducer/deviceReducer';
 import { DeviceState } from './reducers/deviceReducer/DeviceState';
 import userReducer from './reducers/userReducer/UserReducer';
 import { UserState } from './reducers/userReducer/UserState';
+import postReducer from './reducers/postReduser/postReducer';
+import { PostState } from './reducers/postReduser/PostState';
+import snackbarReducer from './reducers/snackbarReduser/snackbarReducer';
+import { SnackbarState } from './reducers/snackbarReduser/SnackbarState';
 
 const persistConfig = {
   key: 'root',
@@ -18,6 +22,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
   device: deviceReducer,
   user: userReducer,
+  post: postReducer,
+  snackbar: snackbarReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -39,6 +45,8 @@ export { store, persistor };
 export interface RootState {
   device: DeviceState;
   user: UserState;
+  post: PostState;
+  snackbar: SnackbarState;
 }
 
 export type AppDispatch = typeof store.dispatch;

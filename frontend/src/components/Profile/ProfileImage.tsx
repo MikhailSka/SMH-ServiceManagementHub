@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Typography, Input } from '@mui/material'
 
-import { ProfileImage as PImage } from 'components/IconsAndAnimations/ProfileImage'
+import { ImageIcon } from 'components/IconsAndAnimations/ImageIcon'
 import { useImageUpload } from '../../hooks/useImageUpload'
 import { useRemoveImage } from '../../hooks/useRemoveImage'
 import { UploadButton } from 'components/Buttons/Components/UploadButton'
@@ -26,7 +26,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ userData }) => {
       >
         Profile Image
       </Typography>
-      <PImage src={userData.image!} />
+      <ImageIcon userData={userData}/>
       <Grid
         sx={{
           margin: '7.5px',

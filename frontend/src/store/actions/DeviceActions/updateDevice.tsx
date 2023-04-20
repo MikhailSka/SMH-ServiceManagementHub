@@ -3,7 +3,7 @@ import { ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
 
 import { api } from 'config/apiConfig'
-import { getDevicesFailure } from '../../reducers/deviceReducer/deviceReducer'
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getDevices } from './getDevices'
 import { RootState } from '../../store'
 import { getAccessToken } from 'config/getAssessToken'
@@ -13,13 +13,9 @@ interface ApiResponse {
   data: IDevice[]
 }
 
-interface ApiError {
-  message: string
-}
-
 export const updateDevice =
-  (
-    device: IDevice
+(
+  device: IDevice
   ): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
@@ -28,6 +24,6 @@ export const updateDevice =
       });
       dispatch(getDevices())
     } catch (error) {
-      dispatch(getDevicesFailure((error as ApiError).message))
+      dispatch(showSnackbar('Server Error :(', 'error'));
     }
   }

@@ -1,19 +1,24 @@
 import React from 'react';
 import { Avatar } from '@mui/material';
 
+import { UserData } from 'store/reducers/userReducer/UserState';
+import { stringAvatar } from '../../hooks/stringAvatar';
+
 interface ProfileImageProps {
-  src: string;
+  userData: UserData
 }
 
-export const ProfileImage: React.FC<ProfileImageProps> = ({ src }) => {
+export const ImageIcon: React.FC<ProfileImageProps> = ({ userData }) => {
   return (
     <Avatar
-      src={src}
+      src={userData.image!}
+      {...stringAvatar(userData.name)}
       style={{
         border: '1.5px solid lightgray',
         margin: ' 25px auto',
         width: '200px',
         height: '200px',
+        fontSize: '100px',
         objectFit: 'cover',
         boxShadow:
           'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',

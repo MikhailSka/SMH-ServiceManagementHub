@@ -4,6 +4,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { RootState } from '../../store';
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { UploadImageSuccessAction } from '../../reducers/userReducer/UserActionTypes'
 import { getAccessToken } from 'config/getAssessToken';
 
@@ -12,7 +13,7 @@ export const uploadImage = (
   file: File
 ): ThunkAction<Promise<void>, RootState, undefined, AnyAction> => async (
   dispatch: ThunkDispatch<RootState, undefined, AnyAction>
-) => {
+  ) => {
   try {
     const formData = new FormData();
     formData.append('image', file);
@@ -37,7 +38,7 @@ export const uploadImage = (
     };
     reader.readAsDataURL(file);
   } catch (error) {
-    console.error('Image upload error:', error);
-    throw error;
+      dispatch(showSnackbar('Image upload error', 'error'));
+
   }
 };

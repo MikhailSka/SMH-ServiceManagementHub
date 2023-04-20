@@ -1,28 +1,21 @@
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from '@reduxjs/toolkit'
 
-import {
-  getDevicesStart,
-  getDevicesSuccess,
-} from '../../reducers/deviceReducer/deviceReducer'
 import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getAccessToken } from 'config/getAssessToken'
 import { RootState } from '../../store'
 import { api } from 'config/apiConfig'
-import { IDevice } from '../../../models/IDevice'
+import { IPost } from 'models/IPost'
+import { getPosts } from './getPosts'
 
-interface ApiError {
-  message: string
-}
-export const getDevices =
-  (): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
+export const updatePost =
+  (post: IPost): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
-      dispatch(getDevicesStart())
-      const response = await api.get<IDevice[]>(`device/get`, {
+      await api.put(`post/update/${post.id}`, post, {
         headers: { Authorization: `Bearer ${getAccessToken()}` },
       })
-      dispatch(getDevicesSuccess(response.data))
+      dispatch(getPosts())
     } catch (error) {
       dispatch(showSnackbar('Server Error :(', 'error'));
     }

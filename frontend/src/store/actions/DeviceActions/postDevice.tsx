@@ -6,12 +6,8 @@ import { api } from 'config/apiConfig'
 import { RootState } from '../../store'
 import { getDevices } from './getDevices'
 import { IDevice } from '../../../models/IDevice'
-import { getDevicesFailure } from '../../reducers/deviceReducer/deviceReducer'
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getAccessToken } from 'config/getAssessToken'
-
-interface ApiError {
-  message: string
-}
 
 export const postDevice =
   (
@@ -24,6 +20,6 @@ export const postDevice =
       });
       dispatch(getDevices())
     } catch (error) {
-      dispatch(getDevicesFailure((error as ApiError).message))
+      dispatch(showSnackbar('Server Error :(', 'error'));
     }
   }

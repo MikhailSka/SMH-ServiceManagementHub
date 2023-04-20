@@ -5,6 +5,7 @@ import { AnyAction } from 'redux';
 
 import { RootState } from '../../store';
 import { RemoveImageSuccessAction } from '../../reducers/userReducer/UserActionTypes'
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getAccessToken } from 'config/getAssessToken';
 
 export const removeImage = (
@@ -23,7 +24,6 @@ export const removeImage = (
       type: 'REMOVE_IMAGE_SUCCESS',
     });
   } catch (error) {
-    console.error('Image removal error:', error);
-    throw error;
+    dispatch(showSnackbar('Image removal error', 'error'));
   }
 };

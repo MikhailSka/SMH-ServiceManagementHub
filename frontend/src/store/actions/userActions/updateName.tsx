@@ -5,6 +5,7 @@ import { AnyAction } from 'redux';
 
 import { RootState } from '../../store';
 import { getAccessToken } from 'config/getAssessToken';
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { UpdateUserNameSuccessAction } from 'store/reducers/userReducer/UserActionTypes';
 
 export const updateUserName = (
@@ -25,7 +26,6 @@ export const updateUserName = (
         payload: { user_id, name },
       });
     } catch (error) {
-      console.error('Name update error:', error);
-      throw error;
+      dispatch(showSnackbar('Name update error', 'error'));
     }
   };

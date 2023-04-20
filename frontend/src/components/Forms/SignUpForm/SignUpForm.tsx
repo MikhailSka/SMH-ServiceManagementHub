@@ -10,9 +10,9 @@ import { EmailInput } from 'components/Inputs/Components/EmailInput/EmailInput';
 import { NameInput } from 'components/Inputs/Components/NameInput/NameInput';
 import { PasswordInput } from 'components/Inputs/Components/PasswordInput/PasswordInput';
 import { useSignUpForm } from './useSignUpForm';
-
 export const SignUpForm: React.FC = () => {
   const classes = useStyles();
+
   const { control, handleSubmit, register, errors, onSubmit } = useSignUpForm();
 
   return (

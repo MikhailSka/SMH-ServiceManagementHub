@@ -5,6 +5,7 @@ import { AnyAction } from 'redux';
 
 import { RootState } from '../../store';
 import { getAccessToken } from 'config/getAssessToken';
+import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { UpdateUserEmailSuccessAction } from 'store/reducers/userReducer/UserActionTypes';
 
 export const updateUserEmail = (
@@ -25,7 +26,6 @@ export const updateUserEmail = (
         payload: { user_id, email },
       });
     } catch (error) {
-      console.error('Email update error:', error);
-      throw error;
+      dispatch(showSnackbar('Email update error', 'error'));
     }
   };

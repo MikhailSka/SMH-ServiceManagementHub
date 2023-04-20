@@ -1,7 +1,9 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
-import { RootState } from '../../store/store'
 
+import { RootState } from '../../store/store'
+import { getAccessToken } from 'config/getAssessToken'
+import { isTokenExpired } from 'config/isTokenExpired'
 import { useAppSelector } from 'store/hooks'
 import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner'
 
@@ -13,8 +15,9 @@ export const AdminRouteWrap: React.FC<AdminWrapProps> = ({ children }) => {
   const { isAuthenticated, userData } = useAppSelector(
     (state: RootState) => state.user
   )
+  const token = getAccessToken();
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || isTokenExpired(token)) {
     return <Navigate to="/login" />
   }
 

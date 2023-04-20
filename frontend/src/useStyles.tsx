@@ -5,10 +5,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
   box: {
     background:'#ffffff',
     maxWidth: '75%',
+    minHeight: '150px',
     marginLeft: 'auto',
     marginRight: 'auto',
     marginTop: '5%',
-    overflow: 'visible',
+    overflow: 'auto',
     boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px',
   },
   center: {
@@ -29,5 +30,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     background: '#ffffff',
+  },
+  loading: {
+    textAlign: 'center'
   }
 }));

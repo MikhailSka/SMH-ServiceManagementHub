@@ -1,8 +1,10 @@
 import React from 'react';
-import { IPost } from 'models/IPost';
-import { useDialogContext } from 'components/Dialogs/Context/useDialogContext';
 import { useAppDispatch } from 'store/hooks';
 import { Grid, Box, Typography } from '@mui/material';
+
+import { IPost } from 'models/IPost';
+import { deletePost } from 'store/actions/postActions/deletePost';
+import { useDialogContext } from 'components/Dialogs/Context/useDialogContext';
 import { TrashButton } from 'components/Buttons/Components/TrashButton';
 import { PenButton } from 'components/Buttons/Components/PenButton';
 import { DeleteButton } from 'components/Buttons/Components/DeleteButton';
@@ -30,7 +32,7 @@ export const PostActions: React.FC<PostActionsProps> = ({ post }) => {
 
   const DeleteConfirmation: React.FC<{ post: IPost }> = ({ post }) => {
     const handleDelete = () => {
-      // Implement your delete logic here and dispatch the action.
+      dispatch(deletePost(post))
       closeDialog();
     };
 

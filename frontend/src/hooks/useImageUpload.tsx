@@ -2,6 +2,7 @@ import imageCompression from 'browser-image-compression'
 
 import { useAppDispatch } from 'store/hooks'
 import { uploadImage } from 'store/actions/userActions/uploadImage'
+import { showSnackbar } from 'store/actions/snackbarActions/showSnackbar'
 
 export const useImageUpload = (userId: string) => {
   const dispatch = useAppDispatch()
@@ -15,7 +16,7 @@ export const useImageUpload = (userId: string) => {
         })
         await dispatch(uploadImage(userId, compressedImage))
       } catch (error) {
-        console.error('Image compression error:', error)
+        dispatch(showSnackbar('An error occurred while image compression', 'error'));
       }
     }
   }

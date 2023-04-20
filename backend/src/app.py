@@ -30,7 +30,7 @@ from .models.unit.routes import unit
 from .models.unit_location.routes import unit_location
 from .models.unit_location_history.routes import unit_location_history
 from .models.user.routes import user
-
+from .models.post.routes import post
 
 app.register_blueprint(customer)
 app.register_blueprint(customer_location)
@@ -41,3 +41,4 @@ app.register_blueprint(unit)
 app.register_blueprint(unit_location)
 app.register_blueprint(unit_location_history)
 app.register_blueprint(user)
+app.register_blueprint(post)

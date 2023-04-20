@@ -20,7 +20,6 @@ export const PostsToolbar: React.FC = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        paddingTop={2}
         marginTop={2}
         mb={2}
       >
