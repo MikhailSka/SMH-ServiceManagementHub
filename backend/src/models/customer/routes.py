@@ -1,15 +1,16 @@
-from flask import request, Blueprint, jsonify
+from flask import Blueprint, jsonify, request
+from flask_jwt_extended import jwt_required
 from datetime import datetime
 
 from ...db import db
 from .Customer import Customer
 from .customerSchemas import customer_schema, customers_schema
 
-
 customer = Blueprint('customer', __name__, url_prefix='/customer')
 
 
 @customer.route('/get', methods=['GET'])
+@jwt_required()
 def get_customers():
     all_customers = Customer.query.all()
     result = customers_schema.dump(all_customers)
@@ -17,12 +18,14 @@ def get_customers():
 
 
 @customer.route('/get/<id>', methods=['GET'])
+@jwt_required()
 def get_customer(id):
     customer = Customer.query.get(id)
-    return customer_schema.jsonify(customer)
+    return customer_schema.jsonify(customer), 200
 
 
 @customer.route('/post', methods=['POST'])
+@jwt_required()
 def add_customer():
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     name = request.json['name']
@@ -37,10 +40,11 @@ def add_customer():
     db.session.add(new_customer)
     db.session.commit()
 
-    return customers_schema.jsonify(new_customer)
+    return customer_schema.jsonify(new_customer), 200
 
 
 @customer.route('/update/<id>', methods=['PUT'])
+@jwt_required()
 def update_customer(id):
     customer = Customer.query.get(id)
 
@@ -51,13 +55,14 @@ def update_customer(id):
 
     db.session.commit()
 
-    return customer_schema.jsonify(customer)
+    return customer_schema.jsonify(customer), 200
 
 
 @customer.route('/delete/<id>', methods=['DELETE'])
+@jwt_required()
 def delete_customer(id):
     customer = Customer.query.get(id)
     db.session.delete(customer)
     db.session.commit()
 
-    return customer_schema.jsonify(customer)
+    return customer_schema.jsonify(customer), 200

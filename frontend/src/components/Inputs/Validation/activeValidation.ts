@@ -3,7 +3,6 @@ export const activeValidation = {
         if (value.toString() !== 'true' && value.toString() !=='false') {
             return 'Choose an option'
         }
-
         return true;
     }
 };

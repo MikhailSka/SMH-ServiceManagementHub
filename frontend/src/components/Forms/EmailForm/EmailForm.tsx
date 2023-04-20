@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Box } from '@mui/material';
 
-import { EmailInput } from 'components/Inputs/Components/EmailInput/EmailInput';
+import { EmailInput } from 'components/Inputs/Components/EmailInput';
 import { ChangeButton } from 'components/Buttons/Components/ChangeButton';
 import { useEmailForm } from './useEmailForm';
 

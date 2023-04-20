@@ -2,8 +2,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/NameInput/NameInput';
-import { ActiveInput } from 'components/Inputs/Components/ActiveInput/ActiveInput';
+import { NameInput } from 'components/Inputs/Components/NameInput';
+import { ActiveInput } from 'components/Inputs/Components/ActiveInput';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 import { useDeviceForm } from './useDeviceForm';
 import { IDevice } from '../../../models/IDevice';

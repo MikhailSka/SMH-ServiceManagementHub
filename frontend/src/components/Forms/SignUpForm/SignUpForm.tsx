@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import { useStyles } from '../../../useStyles';
-import { EmailInput } from 'components/Inputs/Components/EmailInput/EmailInput';
-import { NameInput } from 'components/Inputs/Components/NameInput/NameInput';
-import { PasswordInput } from 'components/Inputs/Components/PasswordInput/PasswordInput';
+import { EmailInput } from 'components/Inputs/Components/EmailInput';
+import { NameInput } from 'components/Inputs/Components/NameInput';
+import { PasswordInput } from 'components/Inputs/Components/PasswordInput';
 import { useSignUpForm } from './useSignUpForm';
 export const SignUpForm: React.FC = () => {
   const classes = useStyles();

@@ -2,8 +2,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { TitleInput } from 'components/Inputs/Components/TitleInput/TitleInput';
-import { ContentInput } from 'components/Inputs/Components/ContentInput/ContentInput';
+import { TitleInput } from 'components/Inputs/Components/TitleInput';
+import { ContentInput } from 'components/Inputs/Components/ContentInput';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 import { usePostForm } from './usePostForm';
 import { IPost } from '../../../models/IPost';
