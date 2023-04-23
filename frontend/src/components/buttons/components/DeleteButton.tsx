@@ -6,8 +6,8 @@ import { IButtonProps } from '../Models/IButtonProps';
 export const DeleteButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
   return (
     <Button
-      variant="text"
-      style={{ color: '#a82a2a' }}
+      variant="outlined"
+      color='error'
       startIcon={<DeleteIcon />}
       onClick={handleAction}
       type={type}

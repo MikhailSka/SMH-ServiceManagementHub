@@ -14,6 +14,7 @@ device = Blueprint('device', __name__, url_prefix='/device')
 def get_devices():
     all_devices = Device.query.all()
     result = devices_schema.dump(all_devices)
+
     return jsonify(result)
 
 
@@ -21,6 +22,7 @@ def get_devices():
 @jwt_required()
 def get_device(id):
     device = Device.query.get(id)
+    
     return device_schema.jsonify(device), 200
 
 

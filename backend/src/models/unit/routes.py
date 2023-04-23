@@ -27,8 +27,8 @@ def get_unit(id):
 def update_unit(id):
     unit = Unit.query.get(id)
 
-    unit.name = request.json['name']
     unit.active = request.json['active']
+    unit.name = request.json['name']
     unit.serial_number = request.json['serial_number']
     unit.product_code = request.json['product_code']
     unit.device_id = request.json['device_id']

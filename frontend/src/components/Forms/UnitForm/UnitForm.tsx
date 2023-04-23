@@ -2,19 +2,19 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/NameInput';
-import { ActiveInput } from 'components/Inputs/Components/ActiveInput';
-import { SerialNumberInput } from 'components/Inputs/Components/SerialNumberInput';
-import { ProductCodeInput } from 'components/Inputs/Components/ProductCodeInput';
-import { DeviceIdInput } from 'components/Inputs/Components/DeviceIdInput';
-import { OperatorIdInput } from 'components/Inputs/Components/OperatorIdInput';
-import { DescriptionInput } from 'components/Inputs/Components/DescriptionInput';
+import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
+import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
+import { SerialNumberInput } from 'components/Inputs/SerialNumberInput/Components/SerialNumberInput';
+import { ProductCodeInput } from 'components/Inputs/ProductCodeInput/Components/ProductCodeInput';
+import { DeviceIdInput } from 'components/Inputs/DeviceIdInput/Components/DeviceIdInput';
+import { OperatorIdInput } from 'components/Inputs/OperatorIdInput/Components/OperatorIdInput';
+import { DescriptionInput } from 'components/Inputs/DescriptionInput/Components/DescriptionInput';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 import { useUnitForm } from './useUnitForm';
-import { IUnit } from '../../../models/IUnit';
+import { IUnitView } from 'models/Unit/IUnitView';
 
 interface FormProps {
-  unit?: IUnit;
+  unit?: IUnitView;
 }
 
 export const UnitForm: React.FC<FormProps> = ({ unit }) => {
@@ -25,10 +25,10 @@ export const UnitForm: React.FC<FormProps> = ({ unit }) => {
       <Box sx={{ p: 2 }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <NameInput control={control} errors={errors} register={register} />
+            <ActiveInput control={control} errors={errors} register={register} />
           </Grid>
           <Grid item xs={12}>
-            <ActiveInput control={control} errors={errors} register={register} />
+            <NameInput control={control} errors={errors} register={register} />
           </Grid>
           <Grid item xs={12}>
             <SerialNumberInput control={control} errors={errors} register={register} />

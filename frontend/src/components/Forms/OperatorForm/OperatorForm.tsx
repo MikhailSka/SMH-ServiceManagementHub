@@ -2,8 +2,8 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/NameInput';
-import { ActiveInput } from 'components/Inputs/Components/ActiveInput';
+import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
+import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 import { useOperatorForm } from './useOperatorForm';
 import { IOperator } from '../../../models/IOperator';

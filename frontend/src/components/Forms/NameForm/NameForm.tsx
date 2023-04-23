@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Box } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/NameInput';
+import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
 import { ChangeButton } from 'components/Buttons/Components/ChangeButton';
 import { useNameForm } from './useNameForm';
 import { UserData } from 'store/reducers/userReducer/UserState';

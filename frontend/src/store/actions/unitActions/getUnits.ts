@@ -6,13 +6,13 @@ import { getUnitsStart, getUnitsSuccess, getUnitsFailure } from 'store/reducers/
 import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getAccessToken } from 'config/getAssessToken';
 import { api } from 'config/apiConfig';
-import { IUnit } from '../../../models/IUnit';
+import { IUnitView } from 'models/Unit/IUnitView';
 
 export const getUnits = (): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {
     try {
       dispatch(getUnitsStart());
-      const response = await api.get<IUnit[]>(`unit/get`, {
+      const response = await api.get<IUnitView[]>(`unit/get`, {
         headers: { Authorization: `Bearer ${getAccessToken()}` },
       });
       dispatch(getUnitsSuccess(response.data));

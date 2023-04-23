@@ -9,7 +9,7 @@ export const UploadButton: React.FC<IButtonProps> = ({
 }) => {
   return (
     <Button
-      variant="text"
+      variant="outlined"
       color="primary"
       startIcon={<UploadIcon />}
       type={type}

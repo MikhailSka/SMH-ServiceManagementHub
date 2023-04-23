@@ -6,8 +6,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 import { useStyles } from '../../../useStyles';
-import { EmailInput } from 'components/Inputs/Components/EmailInput';
-import { PasswordInput } from 'components/Inputs/Components/PasswordInput';
+import { EmailInput } from 'components/Inputs/EmailInput/Components/EmailInput';
+import { PasswordInput } from 'components/Inputs/PasswordInput/Components/PasswordInput';
 import { useLoginForm } from './useLoginForm';
 
 export const LoginForm: React.FC = () => {

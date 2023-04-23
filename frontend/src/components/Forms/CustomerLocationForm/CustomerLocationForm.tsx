@@ -2,10 +2,10 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/NameInput';
-import { ActiveInput } from 'components/Inputs/Components/ActiveInput';
-import { AddressInput} from 'components/Inputs/Components/AddressInput';
-import { CustomerIdInput } from 'components/Inputs/Components/CustomerIdInput';
+import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
+import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
+import { AddressInput} from 'components/Inputs/AddressInput/Components/AddressInput';
+import { CustomerIdInput } from 'components/Inputs/CustomerIdInput/Components/CustomerIdInput';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 import { useCustomerLocationForm } from './useCustomerLocationForm';
 import { ICustomerLocation } from '../../../models/ICustomerLocation';

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography, Input } from '@mui/material'
+import { Grid, Typography, Input, Box } from '@mui/material'
 
 import { ImageIcon } from 'components/IconsAndAnimations/ImageIcon'
 import { useImageUpload } from '../../hooks/useImageUpload'
@@ -26,7 +26,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ userData }) => {
       >
         Profile Image
       </Typography>
-      <ImageIcon userData={userData}/>
+      <ImageIcon userData={userData} />
       <Grid
         sx={{
           margin: '7.5px',
@@ -36,19 +36,23 @@ const ProfileImage: React.FC<ProfileImageProps> = ({ userData }) => {
           justifyContent: 'center',
         }}
       >
-        <Input
-          id="image"
-          name="image"
-          type="file"
-          sx={{
-            display: 'none',
-          }}
-          onChange={handleImageUpload}
-        />
-        <label htmlFor="image">
-          <UploadButton component="span" />
-        </label>
-        {userData.image && <DeleteButton handleAction={handleRemoveImage} />}
+        <Box padding='2px'>
+          <Input
+            id="image"
+            name="image"
+            type="file"
+            sx={{
+              display: 'none',
+            }}
+            onChange={handleImageUpload}
+          />
+          <label htmlFor="image">
+            <UploadButton component="span" />
+          </label>
+        </Box>
+        <Box padding='2px'>
+          {userData.image && <DeleteButton handleAction={handleRemoveImage} />}
+        </Box>
       </Grid>
     </Grid>
   )

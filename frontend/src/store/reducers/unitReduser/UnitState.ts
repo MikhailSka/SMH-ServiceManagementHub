@@ -1,4 +1,4 @@
-import { IUnit } from '../../../models/IUnit';
+import { IUnit } from '../../../models/Unit/IUnit';
 
 export interface UnitState {
     units: IUnit[];

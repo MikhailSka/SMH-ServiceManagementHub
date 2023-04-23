@@ -1,19 +1,14 @@
-import React from 'react'
-import { useMemo } from 'react'
-import { useEffect } from 'react'
-import MUIDataTable from 'mui-datatables'
-import { MUIDataTableBody } from 'mui-datatables'
+import React, { useMemo, useEffect } from 'react'
+import MUIDataTable, { MUIDataTableBody }from 'mui-datatables'
 import { Box } from '@mui/material'
 
-import { useStyles } from '../../../../useStyles'
-import { useAppDispatch } from 'store/hooks'
-import { useAppSelector } from 'store/hooks'
-import { getDevices } from 'store/actions/deviceActions/getDevices'
 import { RootState } from '../../../../store/store'
-import { useDeviceTableColumns } from './useDeviceTableColumns'
-import LoadingTableBody from '../../Common/LoadingTableBody'
-import DeviceTableToolbar from './DeviceTableToolbar'
-
+import { useAppDispatch, useAppSelector } from 'store/hooks'
+import { getDevices } from 'store/actions/deviceActions/getDevices'
+import { useDeviceTableColumns } from '../Hooks/useDeviceTableColumns'
+import { LoadingTableBody } from '../../Common/LoadingTableBody'
+import { DeviceTableToolbar } from './DeviceTableToolbar'
+import { useStyles } from '../../../../useStyles'
 
 const DeviceTable: React.FC = () => {
   const dispatch = useAppDispatch()

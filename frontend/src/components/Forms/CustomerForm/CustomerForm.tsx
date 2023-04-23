@@ -2,9 +2,9 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Grid } from '@mui/material';
 
-import { NameInput } from 'components/Inputs/Components/NameInput';
-import { NipInput } from 'components/Inputs/Components/NipInput';
-import { ActiveInput } from 'components/Inputs/Components/ActiveInput';
+import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
+import { NipInput } from 'components/Inputs/NipInput/Components/NipInput';
+import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
 import { useCustomerForm } from './useCustomerForm';
 import { ICustomer } from '../../../models/ICustomer';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';

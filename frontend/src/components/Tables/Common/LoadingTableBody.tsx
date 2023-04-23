@@ -12,7 +12,7 @@ interface Props extends MUIDataTableBody {
   loading: boolean;
 }
 
-const LoadingTableBody = ({ loading, options, columns, ...others }: Props) => {
+export const LoadingTableBody = ({ loading, options, columns, ...others }: Props) => {
   // @ts-ignore
   const visibleColCnt = columns.filter(c => c.display === 'true').length;
   const classes = useStyles();
@@ -40,4 +40,3 @@ const LoadingTableBody = ({ loading, options, columns, ...others }: Props) => {
     <TableBody options={options} columns={columns} {...others} />
   );
 };
-export default LoadingTableBody;
