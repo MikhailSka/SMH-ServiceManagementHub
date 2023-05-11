@@ -1,5 +1,5 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
-import { AddButton } from 'components/Buttons/Components/AddButton'
+import { AddButton } from 'components/Buttons/Components/IconButtons/AddButton'
 import { UnitForm } from 'components/Forms/UnitForm/UnitForm'
 
 export const UnitTableToolbar: React.FC = () => {

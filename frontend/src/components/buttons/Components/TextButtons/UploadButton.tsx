@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 import UploadIcon from '@mui/icons-material/Upload'
 
-import { IButtonProps } from '../Models/IButtonProps'
+import { IButtonProps } from '../../Models/IButtonProps'
 
 export const UploadButton: React.FC<IButtonProps> = ({
   type = 'submit',

@@ -5,7 +5,7 @@ import { DialogTitle } from '@mui/material'
 import { Box } from '@mui/material'
 import { DialogContent } from '@mui/material'
 
-import { CloseButton } from 'components/Buttons/Components/CloseButton'
+import { CloseButton } from 'components/Buttons/Components/IconButtons/CloseButton'
 
 interface DialogProps {
   isOpen: boolean

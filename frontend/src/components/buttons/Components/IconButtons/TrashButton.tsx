@@ -2,7 +2,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Tooltip } from '@mui/material';
 
-import { IButtonProps } from '../Models/IButtonProps';
+import { IButtonProps } from '../../Models/IButtonProps';
 
 export const TrashButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
   return (

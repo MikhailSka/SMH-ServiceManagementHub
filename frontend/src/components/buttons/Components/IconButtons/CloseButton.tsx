@@ -1,7 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton } from '@mui/material';
 
-import { IButtonProps } from '../Models/IButtonProps';
+import { IButtonProps } from '../../Models/IButtonProps';
 
 export const CloseButton: React.FC<IButtonProps> = ({ handleAction, style }) => {
   return (

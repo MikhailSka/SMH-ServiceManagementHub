@@ -4,8 +4,8 @@ import { Grid, Typography, Input, Box } from '@mui/material'
 import { ImageIcon } from 'components/IconsAndAnimations/ImageIcon'
 import { useImageUpload } from '../../hooks/useImageUpload'
 import { useRemoveImage } from '../../hooks/useRemoveImage'
-import { UploadButton } from 'components/Buttons/Components/UploadButton'
-import { DeleteButton } from 'components/Buttons/Components/DeleteButton'
+import { UploadButton } from 'components/Buttons/Components/TextButtons/UploadButton'
+import { DeleteButton } from 'components/Buttons/Components/TextButtons/DeleteButton'
 import { UserData } from 'store/reducers/userReducer/UserState'
 
 interface ProfileImageProps {

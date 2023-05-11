@@ -7,7 +7,7 @@ import { NipInput } from 'components/Inputs/NipInput/Components/NipInput';
 import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
 import { useCustomerForm } from './useCustomerForm';
 import { ICustomer } from '../../../models/ICustomer';
-import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
+import { ConfirmButton } from 'components/Buttons/Components/IconButtons/ConfirmButton';
 
 interface FormProps {
   customer?: ICustomer;

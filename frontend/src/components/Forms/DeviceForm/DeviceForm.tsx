@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 
 import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
 import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
-import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
+import { ConfirmButton } from 'components/Buttons/Components/IconButtons/ConfirmButton';
 import { useDeviceForm } from './useDeviceForm';
 import { IDevice } from '../../../models/IDevice';
 

@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
 
-import { IButtonProps } from '../Models/IButtonProps'
+import { IButtonProps } from '../../Models/IButtonProps'
 
 export const GoBackButton: React.FC<IButtonProps> = ({
   handleAction,

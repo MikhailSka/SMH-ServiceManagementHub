@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 import { Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { GoBackButton } from 'components/Buttons/Components/GoBackButton';
+import { GoBackButton } from 'components/Buttons/Components/TextButtons/GoBackButton';
 
 const UnauthorizedPage = () => {
     const navigate = useNavigate();

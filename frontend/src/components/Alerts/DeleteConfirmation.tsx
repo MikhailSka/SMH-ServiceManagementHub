@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { Grid, Box, Typography } from '@mui/material'
-import { DeleteButton } from 'components/Buttons/Components/DeleteButton'
+import { DeleteButton } from 'components/Buttons/Components/TextButtons/DeleteButton'
 
 interface DeleteConfirmationProps {
   action: () => void

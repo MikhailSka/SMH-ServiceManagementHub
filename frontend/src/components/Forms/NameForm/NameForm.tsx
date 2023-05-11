@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Box } from '@mui/material';
 
 import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
-import { ChangeButton } from 'components/Buttons/Components/ChangeButton';
+import { ChangeButton } from 'components/Buttons/Components/TextButtons/ChangeButton';
 import { useNameForm } from './useNameForm';
 import { IUser } from 'models/IUser';
 

@@ -4,7 +4,7 @@ import { Box, Grid, Skeleton } from '@mui/material';
 import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
 import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
 import { CustomerIdInput } from 'components/Inputs/CustomerIdInput/Components/CustomerIdInput';
-import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
+import { ConfirmButton } from 'components/Buttons/Components/IconButtons/ConfirmButton';
 import { useLocationForm } from './useLocationForm';
 import { ILocation } from '../../../models/ILocation';
 

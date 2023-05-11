@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Typography, Divider } from '@mui/material';
 
-import { NewPostButton } from 'components/Buttons/Components/NewPostButton'
+import { NewPostButton } from 'components/Buttons/Components/TextButtons/NewPostButton'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { PostForm } from 'components/Forms/PostForm/PostForm'
 
@@ -20,7 +20,8 @@ export const PostsToolbar: React.FC = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        marginTop={2}
+        margin={1}
+
         mb={2}
       >
         <Typography variant="h4" component="h1">

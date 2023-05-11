@@ -3,7 +3,7 @@ import { MenuItem, Menu as MuiMenu, Box } from '@mui/material'
 
 import { useMenuContext } from '../../Context/useMenuContext'
 import { useMenuOptions } from './useMenuOptions'
-import { MenuButton } from 'components/Buttons/Components/MenuButton'
+import { MenuButton } from 'components/Buttons/Components/IconButtons/MenuButton'
 
 export const MenuBar: React.FC = () => {
   const { menu, openMenu, closeMenu } = useMenuContext()

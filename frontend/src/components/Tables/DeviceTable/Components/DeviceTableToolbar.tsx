@@ -1,5 +1,5 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
-import { AddButton } from 'components/Buttons/Components/AddButton'
+import { AddButton } from 'components/Buttons/Components/IconButtons/AddButton'
 import { DeviceForm } from 'components/Forms/DeviceForm/DeviceForm'
 
 export const DeviceTableToolbar: React.FC = () => {

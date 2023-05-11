@@ -1,7 +1,7 @@
 import IconButton from '@mui/material/IconButton';
 import { Tooltip } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { IButtonProps } from '../Models/IButtonProps';
+import { IButtonProps } from '../../Models/IButtonProps';
 
 export const AddButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
     return (

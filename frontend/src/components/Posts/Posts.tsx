@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Masonry } from '@mui/lab'
-import { Container, CircularProgress, Typography } from '@mui/material'
+import { Box, CircularProgress, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 
@@ -33,7 +33,7 @@ export const Posts: React.FC = () => {
   }, [])
 
   return (
-    <Container className={classes.box} sx={{ padding: '4px' }}>
+    <Box className={classes.box} sx={{ padding: '10px' }}>
       <PostsToolbar />
 
       {isLoading ? (
@@ -65,6 +65,6 @@ export const Posts: React.FC = () => {
           There is no posts, add one ;)
         </Typography>
       )}
-    </Container>
+    </Box>
   )
 }

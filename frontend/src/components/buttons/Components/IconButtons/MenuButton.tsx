@@ -2,7 +2,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Tooltip } from '@mui/material';
 
-import { IButtonProps } from '../Models/IButtonProps';
+import { IButtonProps } from '../../Models/IButtonProps';
 
 export const MenuButton: React.FC<IButtonProps> = ({ handleAction, type = 'button' }) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
-import { PenButton } from 'components/Buttons/Components/PenButton'
-import { TrashButton } from 'components/Buttons/Components/TrashButton'
+import { PenButton } from 'components/Buttons/Components/IconButtons/PenButton'
+import { TrashButton } from 'components/Buttons/Components/IconButtons/TrashButton'
 
 interface RowActionsProps {
   handleUpdate: () => void

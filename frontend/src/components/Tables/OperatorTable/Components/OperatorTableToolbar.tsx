@@ -1,5 +1,5 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
-import { AddButton } from 'components/Buttons/Components/AddButton'
+import { AddButton } from 'components/Buttons/Components/IconButtons/AddButton'
 import { OperatorForm } from 'components/Forms/OperatorForm/OperatorForm'
 
 export const OperatorTableToolbar: React.FC = () => {

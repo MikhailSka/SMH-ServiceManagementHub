@@ -2,8 +2,8 @@ import IconButton from '@mui/material/IconButton'
 import { Avatar } from '@mui/material'
 import { Tooltip } from '@mui/material'
 
-import { IButtonProps } from '../Models/IButtonProps'
-import { stringAvatar } from '../../../hooks/stringAvatar'
+import { IButtonProps } from '../../Models/IButtonProps'
+import { stringAvatar } from '../../../../hooks/stringAvatar'
 import { useAppSelector } from 'store/hooks'
 import { RootState } from 'store/store'
 

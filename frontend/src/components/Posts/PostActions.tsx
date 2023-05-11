@@ -5,9 +5,9 @@ import { Grid, Box, Typography } from '@mui/material';
 import { IPost } from 'models/IPost';
 import { deletePost } from 'store/actions/postActions/deletePost';
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext';
-import { TrashButton } from 'components/Buttons/Components/TrashButton';
-import { PenButton } from 'components/Buttons/Components/PenButton';
-import { DeleteButton } from 'components/Buttons/Components/DeleteButton';
+import { TrashButton } from 'components/Buttons/Components/IconButtons/TrashButton';
+import { PenButton } from 'components/Buttons/Components/IconButtons/PenButton';
+import { DeleteButton } from 'components/Buttons/Components/TextButtons/DeleteButton';
 import { PostForm } from 'components/Forms/PostForm/PostForm';
 
 interface PostActionsProps {

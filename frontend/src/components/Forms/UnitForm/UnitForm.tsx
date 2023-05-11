@@ -9,7 +9,7 @@ import { LocationIdInput } from 'components/Inputs/LocationIdInput/Components/Lo
 import { DeviceIdInput } from 'components/Inputs/DeviceIdInput/Components/DeviceIdInput'
 import { OperatorIdInput } from 'components/Inputs/OperatorIdInput/Components/OperatorIdInput'
 import { DescriptionInput } from 'components/Inputs/DescriptionInput/Components/DescriptionInput'
-import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton'
+import { ConfirmButton } from 'components/Buttons/Components/IconButtons/ConfirmButton'
 import { useUnitForm } from './useUnitForm'
 import { IUnit } from 'models/IUnit'
 

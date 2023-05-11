@@ -1,5 +1,6 @@
 import { MUIDataTableColumn } from 'mui-datatables'
 
+import { getDescriptionOption } from 'components/Tables/Common/ColumnsOptions/Description/descriptionOption'
 import { getDateOptions } from 'components/Tables/Common/ColumnsOptions/Date/dateOption'
 import { getActiveOptions } from 'components/Tables/Common/ColumnsOptions/Active/activeOption'
 import { UnitRowActions } from '../Components/UnitRowActions'
@@ -38,6 +39,7 @@ export const useUnitTableColumns = (units: any[]) => {
     {
       label: 'Description',
       name: 'description',
+      options: getDescriptionOption()
     },
     {
       name: 'creation_date',

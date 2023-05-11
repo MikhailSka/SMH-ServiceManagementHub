@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 
 import { TitleInput } from 'components/Inputs/TitleInput/Components/TitleInput';
 import { ContentInput } from 'components/Inputs/ContentInput/Components/ContentInput';
-import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
+import { ConfirmButton } from 'components/Buttons/Components/IconButtons/ConfirmButton';
 import { usePostForm } from './usePostForm';
 import { IPost } from '../../../models/IPost';
 
