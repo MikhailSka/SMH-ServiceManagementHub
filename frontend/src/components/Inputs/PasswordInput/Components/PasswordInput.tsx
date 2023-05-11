@@ -14,7 +14,7 @@ export const PasswordInput: React.FC<InputProps> = ({ errors, control, register 
           <TextField
             label="Password"
             type="password"
-            value={field.value}
+            value={field.value || ''}
             fullWidth={true}
             size="small"
             margin="normal"

@@ -14,18 +14,16 @@ import snackbarReducer from './reducers/snackbarReduser/snackbarReducer';
 import { SnackbarState } from './reducers/snackbarReduser/SnackbarState';
 import customerReduser from './reducers/customerReduser/customerReduser';
 import { CustomerState } from './reducers/customerReduser/CustomerState';
-import customerLocationReduser from './reducers/customerLocationReduser/customerLocationReduser';
-import { CustomerLocationState } from './reducers/customerLocationReduser/CustomerLocationState';
 import locationReduser from './reducers/locationReduser/locationReduser';
 import { LocationState } from './reducers/locationReduser/LocationState';
 import operatorReduser from './reducers/operatorReduser/operatorReduser';
 import { OperatorState } from './reducers/operatorReduser/OperatorState';
 import unitReduser from './reducers/unitReduser/unitReduser';
 import { UnitState } from './reducers/unitReduser/UnitState';
-import unitLocationReduser from './reducers/unitLocationReduser/unitLocationReduser';
-import { UnitLocationState } from './reducers/unitLocationReduser/UnitLocationState';
-import unitLocationHistoryReduser from './reducers/unitLocationHistoryReduser/unitLocationHistoryReduser';
-import { UnitLocationHistoryState } from './reducers/unitLocationHistoryReduser/UnitLocationHistoryState';
+import unitLocationHistoryReduser from './reducers/unitHistoryReduser/unitHistoryReduser';
+import { UnitLocationHistoryState } from './reducers/unitHistoryReduser/UnitHistoryState';
+import sideNavBarReducer from './reducers/sideNavBarReducer/sideNavBarReducer';
+import { SideNavBarState } from './reducers/sideNavBarReducer/SideNavBarState';
 
 const persistConfig = {
   key: 'root',
@@ -39,12 +37,11 @@ const rootReducer = combineReducers({
   post: postReducer,
   snackbar: snackbarReducer,
   customer: customerReduser,
-  customerLocation: customerLocationReduser,
   location: locationReduser,
   operator: operatorReduser,
   unit: unitReduser,
-  unitLocation: unitLocationReduser,
-  unitLocationHistory: unitLocationHistoryReduser
+  unitLocationHistory: unitLocationHistoryReduser,
+  sideNavBar: sideNavBarReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -69,12 +66,11 @@ export interface RootState {
   post: PostState;
   snackbar: SnackbarState;
   customer: CustomerState;
-  customerLocation: CustomerLocationState;
   location: LocationState;
   operator: OperatorState;
   unit: UnitState;
-  unitLocation: UnitLocationState;
   unitLocationHistory: UnitLocationHistoryState;
+  sideNavBar: SideNavBarState;
 }
 
 export type AppDispatch = typeof store.dispatch;

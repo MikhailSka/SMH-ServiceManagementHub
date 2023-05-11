@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IUnit } from '../../../models/Unit/IUnit';
+import { IUnit } from '../../../models/IUnit';
 import { UnitState } from './UnitState';
 
 const initialState: UnitState = {

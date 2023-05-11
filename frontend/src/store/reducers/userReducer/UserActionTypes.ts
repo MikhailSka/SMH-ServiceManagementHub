@@ -1,46 +1,61 @@
-import { UserData } from "./UserState";
+import { IUser } from 'models/IUser'
 
 export interface LoginSuccessAction {
-  type: 'LOGIN_SUCCESS';
-  payload: UserData;
+  type: 'LOGIN_SUCCESS'
+  payload: IUser
 }
 
 export interface RegisterSuccessAction {
-  type: 'REGISTER_SUCCESS';
-  payload: UserData;
+  type: 'REGISTER_SUCCESS'
+  payload: IUser
 }
 
 export interface LogoutSuccessAction {
-  type: 'LOGOUT_SUCCESS';
+  type: 'LOGOUT_SUCCESS'
 }
 
 export interface RemoveImageSuccessAction {
-  type: 'REMOVE_IMAGE_SUCCESS';
+  type: 'REMOVE_IMAGE_SUCCESS'
 }
+
+export interface AddUserAction {
+  type: 'ADD_USER';
+  payload: IUser;
+}
+
 export interface UploadImageSuccessAction {
-  type: 'UPLOAD_IMAGE_SUCCESS';
-  payload: string;
+  type: 'UPLOAD_IMAGE_SUCCESS'
+  payload: string
 }
+
 export interface UpdateUserNameSuccessAction {
-  type: 'UPDATE_USER_NAME_SUCCESS';
+  type: 'UPDATE_USER_NAME_SUCCESS'
   payload: {
-    user_id: string;
-    name: string;
-  };
+    user_id: string
+    name: string
+  }
+}
+
+export interface LoadUsersSuccessAction {
+  type: 'LOAD_USERS_SUCCESS'
+  payload: IUser[]
 }
 
 export interface UpdateUserEmailSuccessAction {
-  type: 'UPDATE_USER_EMAIL_SUCCESS';
+  type: 'UPDATE_USER_EMAIL_SUCCESS'
   payload: {
-    user_id: string;
-    email: string;
-  };
+    user_id: string
+    email: string
+  }
 }
+
 export type UserActionTypes =
-  LoginSuccessAction
+  | LoginSuccessAction
   | LogoutSuccessAction
   | RegisterSuccessAction
   | UploadImageSuccessAction
   | RemoveImageSuccessAction
   | UpdateUserNameSuccessAction
-  | UpdateUserEmailSuccessAction;
+  | UpdateUserEmailSuccessAction
+  | LoadUsersSuccessAction
+  | AddUserAction;

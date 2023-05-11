@@ -14,7 +14,7 @@ export const EmailInput: React.FC<InputProps> = ({ errors, control, register, on
           <TextField
             onChange={onInputChange}
             label="Email Address"
-            value={field.value}
+            value={field.value || ''} 
             fullWidth={true}
             size="small"
             margin="normal"

@@ -1,58 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from 'store/hooks';
 import { postUnit } from 'store/actions/unitActions/postUnit';
 import { updateUnit } from 'store/actions/unitActions/updateUnit';
-import { IUnitView } from 'models/Unit/IUnitView';
-import { IUnit} from '../../../models/Unit/IUnit';
+import { getLocations } from 'store/actions/locationActions/getLocations';
+import { getDevices } from 'store/actions/deviceActions/getDevices';
+import { getOperators } from 'store/actions/operatorActions/getOperators';
+import { IUnit} from '../../../models/IUnit';
 
 interface UseUnitFormProps {
-    unit?: IUnitView;
+    unit?: IUnit;
 }
-const convertIUnitViewToIUnit = (unitView: IUnitView): IUnit => {
-    if (!unitView) {
-        // Return an empty IUnit object or handle the error as required
-        return {
-          active: false,
-          name: "",
-          serial_number: "",
-          product_code: "",
-          device_id: "",
-          operator_id: "",
-          description: "",
-        };
-      }
-    
-      const {
-        id,
-        active,
-        name,
-        serial_number,
-        product_code,
-        device_id,
-        operator_id,
-        description,
-        creation_date,
-        modification_date,
-      } = unitView;
-    
-      return {
-        id,
-        active,
-        name,
-        serial_number,
-        product_code,
-        device_id,
-        operator_id,
-        description,
-        creation_date,
-        modification_date,
-      };
-    
-  };
 
 export const useUnitForm = ({ unit }: UseUnitFormProps) => {
     const dispatch = useAppDispatch();
+    const [loading, setLoading] = useState(true);
     const {
         control,
         handleSubmit,
@@ -72,12 +34,26 @@ export const useUnitForm = ({ unit }: UseUnitFormProps) => {
     const onSubmit = (data: IUnit) => {
         if (unit) {
             data.id = unit.id;
-            console.log(convertIUnitViewToIUnit(data))
-            dispatch(updateUnit(convertIUnitViewToIUnit(data)));
+            dispatch(updateUnit(data));
         } else {
+            console.log(data)
             dispatch(postUnit(data));
         }
     };
 
-    return { control, handleSubmit, register, errors, onSubmit };
+    useEffect(() => {
+        const fetchOperatorsAndDevices = async () => {
+          try {
+            await Promise.all([dispatch(getOperators()), dispatch(getDevices()), dispatch(getLocations)]);
+          } catch (error) {
+            console.error('Error fetching operators and devices:', error);
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchOperatorsAndDevices();
+      }, [dispatch]);
+    
+      return { control, handleSubmit, register, errors, onSubmit, loading };
 };

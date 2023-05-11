@@ -11,6 +11,7 @@ const initialState: UserState = {
     image: '',
     active: false,
   },
+  users: [],
 };
 
 const userReducer = (state = initialState, action: UserActionTypes): UserState => {
@@ -42,6 +43,7 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
         isAuthenticated: true,
         userData: action.payload,
       };
+
     case 'UPLOAD_IMAGE_SUCCESS':
       return {
         ...state,
@@ -50,6 +52,7 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
           image: action.payload,
         },
       };
+
     case 'REMOVE_IMAGE_SUCCESS':
       return {
         ...state,
@@ -58,23 +61,46 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
           image: null,
         },
       };
-      case 'UPDATE_USER_NAME_SUCCESS':
-        return {
-          ...state,
-          userData: {
-            ...state.userData,
-            name: action.payload.name,
-          },
-        };
-  
-      case 'UPDATE_USER_EMAIL_SUCCESS':
-        return {
-          ...state,
-          userData: {
-            ...state.userData,
-            email: action.payload.email,
-          },
-        };
+
+    case 'UPDATE_USER_NAME_SUCCESS':
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          name: action.payload.name,
+        },
+      };
+
+    case 'UPDATE_USER_EMAIL_SUCCESS':
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          email: action.payload.email,
+        },
+      };
+
+      case 'ADD_USER': {
+        const index = state.users ? state.users.findIndex((user) => user.id === action.payload.id) : -1;
+      
+        if (index > -1) {
+          return {
+            ...state,
+            users: state.users.map((user, i) => (i === index ? action.payload : user)),
+          };
+        } else {
+          return {
+            ...state,
+            users: [...(state.users ?? []), action.payload],
+          };
+        }
+      }
+
+    case 'LOAD_USERS_SUCCESS':
+      return {
+        ...state,
+        users: action.payload,
+      };
     default:
       return state;
   }

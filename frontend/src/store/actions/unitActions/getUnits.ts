@@ -6,7 +6,7 @@ import { getUnitsStart, getUnitsSuccess, getUnitsFailure } from 'store/reducers/
 import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getAccessToken } from 'config/getAssessToken';
 import { api } from 'config/apiConfig';
-import { IUnitView } from 'models/Unit/IUnitView';
+import { IUnitView } from 'models/IUnit';
 
 export const getUnits = (): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {

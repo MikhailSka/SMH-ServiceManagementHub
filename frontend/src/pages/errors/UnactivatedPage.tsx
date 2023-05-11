@@ -8,7 +8,7 @@ const UnactivatedPage = () => {
   const navigate = useNavigate()
 
   const handleGoBack = () => {
-    navigate(-1)
+    navigate('/login')
   }
 
   return (

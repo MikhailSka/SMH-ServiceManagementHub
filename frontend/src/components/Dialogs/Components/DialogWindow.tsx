@@ -21,7 +21,7 @@ const DialogWindow: React.FC<DialogProps> = ({
   children,
 }) => {
   return (
-    <Dialog open={isOpen} onClose={onClose}>
+    <Dialog open={isOpen} onClose={onClose} sx={{minWidth:"300px"}}>
       <DialogTitle>
         {title}
         <CloseButton

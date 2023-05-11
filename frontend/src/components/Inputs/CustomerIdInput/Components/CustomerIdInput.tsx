@@ -1,59 +1,46 @@
-import { useState, useEffect } from 'react';
-import { Controller } from 'react-hook-form';
-import { TextField } from '@mui/material';
-import { MenuItem } from '@mui/material';
-import { Autocomplete } from '@mui/lab';
+import React from 'react'
+import { Controller } from 'react-hook-form'
+import { TextField, Autocomplete } from '@mui/material'
 
-import { InputProps } from 'components/Inputs/Common/Models/InputProps';
-import { customerIdValidation } from 'components/Inputs/CustomerIdInput/Validation/customerIdValidation';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { getCustomers } from 'store/actions/customerActions/getCustomers';
-import { RootState } from 'store/store';
-import { ICustomer } from 'models/ICustomer';
+import { customerIdValidation } from '../Validation/customerIdValidation'
+import { useAppSelector } from 'store/hooks'
+import { InputProps } from 'components/Inputs/Common/Models/InputProps'
+import { ICustomer } from 'models/ICustomer'
 
-export const CustomerIdInput: React.FC<InputProps> = ({ errors, control, register }) => {
-    const dispatch = useAppDispatch();
-    const customers = useAppSelector((state: RootState) => state.customer.customers);
-  
-    useEffect(() => {
-      dispatch(getCustomers());
-    }, [dispatch]);
-  
-    const [inputValue, setInputValue] = useState('');
-  
-    return (
-      <Controller
-        control={control}
-        name="customer_id"
-        rules={customerIdValidation}
-        render={({ field }) => (
-          <Autocomplete
-            options={customers}
-            getOptionLabel={(option: ICustomer) => option.name}
-            value={field.value ? customers.find((customer) => customer.id === field.value) : null}
-            inputValue={inputValue}
-            onInputChange={(_, newInputValue) => {
-              setInputValue(newInputValue);
-            }}
-            onChange={(_, value) => field.onChange(value?.id)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Customer"
-                size="small"
-                margin="normal"
-                error={!!errors.customer_id?.message}
-                helperText={errors?.customer_id?.message}
-                {...register('customer_id')}
-              />
-            )}
-            renderOption={(props, option) => (
-              <MenuItem key={option.id}>
-                {option.name}
-              </MenuItem>
-            )}
-          />
-        )}
-      />
-    );
-  };
+export const CustomerIdInput: React.FC<InputProps> = ({ errors, control }) => {
+  const customers = useAppSelector((state) => state.customer.customers)
+
+  return (
+    <Controller
+      control={control}
+      name="customer_id"
+      rules={customerIdValidation}
+      render={({ field }) => (
+        <Autocomplete
+          disablePortal
+          id="customer-id-autocomplete"
+          options={customers}
+          getOptionLabel={(customer: ICustomer) => customer.name}
+          value={
+            field.value
+              ? customers.find((customer) => customer.id === field.value)
+              : null
+          }
+          onChange={(_, data) => field.onChange(data?.id)}
+          getOptionDisabled={(customer: ICustomer) => !customer.active}
+          fullWidth
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Customer"
+              size="small"
+              margin="normal"
+              error={!!errors.customer_id?.message}
+              helperText={errors?.customer_id?.message}
+            />
+          )}
+        />
+      )}
+    />
+  )
+}

@@ -31,6 +31,7 @@ def update_unit(id):
     unit.name = request.json['name']
     unit.serial_number = request.json['serial_number']
     unit.product_code = request.json['product_code']
+    unit.location_id = request.json['location_id']
     unit.device_id = request.json['device_id']
     unit.operator_id = request.json['operator_id']
     unit.description = request.json['description']
@@ -57,13 +58,14 @@ def add_unit():
     active = request.json['active']
     serial_number = request.json['serial_number']
     product_code = request.json['product_code']
+    location_id = request.json['location_id']
     device_id = request.json['device_id']
     operator_id = request.json['operator_id']
     description = request.json['description']
     creation_date = now
     modification_date = now
 
-    new_unit = Unit(name, active, serial_number, product_code, device_id,
+    new_unit = Unit(active,name, serial_number, product_code,location_id, device_id,
                     operator_id, description, creation_date, modification_date)
 
     db.session.add(new_unit)

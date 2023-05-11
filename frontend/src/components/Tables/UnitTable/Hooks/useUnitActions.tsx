@@ -1,4 +1,4 @@
-import { IUnit } from 'models/Unit/IUnit'
+import { IUnit } from 'models/IUnit'
 import { useAppDispatch } from 'store/hooks'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { DeleteConfirmation } from 'components/Alerts/DeleteConfirmation'

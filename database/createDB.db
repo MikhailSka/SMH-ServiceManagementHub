@@ -25,11 +25,13 @@ CREATE TABLE IF NOT EXISTS unit
     name VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
 	serial_number VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
 	product_code VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
-	device_id UUID NOT NULL, 
+	location_id UUID NOT NULL,
+    device_id UUID NOT NULL, 
 	operator_id uuid NOT NULL,
 	description VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
     creation_date timestamp NOT NULL,
     modification_date timestamp,
+    FOREIGN KEY (location_id) REFERENCES location (id);
 	CONSTRAINT unit_pkey PRIMARY KEY (id),
 	CONSTRAINT fk_device FOREIGN KEY (device_id) REFERENCES device (id),
 	CONSTRAINT fk_operator FOREIGN KEY (operator_id) REFERENCES operator (id)
@@ -40,9 +42,12 @@ CREATE TABLE IF NOT EXISTS location
     id UUID NOT NULL DEFAULT gen_random_uuid(),
     active BOOL NOT NULL,
     name VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
+    customer_id UUID NULL,
     creation_date timestamp NOT NULL,
     modification_date timestamp,
 	CONSTRAINT location_pkey PRIMARY KEY (id)
+    FOREIGN KEY (customer_id) REFERENCES customer (id)
+
 );
 CREATE TABLE IF NOT EXISTS customer
 (
@@ -55,46 +60,16 @@ CREATE TABLE IF NOT EXISTS customer
 	CONSTRAINT customer_pkey PRIMARY KEY (id)
 	
 );
-CREATE TABLE IF NOT EXISTS customer_location
-(
-	id UUID NOT NULL DEFAULT gen_random_uuid(),
-    active BOOL NOT NULL,
-    name VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
-	address VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
-	customer_id UUID NOT NULL,
-    creation_date DATE NOT NULL,
-	modification_date timestamp,
-	CONSTRAINT customer_location_pkey PRIMARY KEY (id),
-	CONSTRAINT fk_customer FOREIGN KEY (customer_id) references customer (id)
-);
-CREATE TABLE IF NOT EXISTS unit_location
-(
-    id UUID NOT NULL DEFAULT gen_random_uuid(),
-    location_id UUID NOT NULL,
-  	description VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
-	unit_id UUID UNIQUE REFERENCES unit (id), 
-	customer_location_id UUID,
-    creation_date timestamp NOT NULL,
-    modification_date timestamp,
-	CONSTRAINT unit_location_pkey PRIMARY KEY (id),
-	CONSTRAINT fk_location FOREIGN KEY (location_id) REFERENCES location (id),
-	CONSTRAINT fk_customer_location FOREIGN KEY (customer_location_id) REFERENCES customer_location (id)
-);
 
-CREATE TABLE IF NOT EXISTS unit_location_history
-(
-    id UUID NOT NULL DEFAULT gen_random_uuid(),
-	location_id UUID NOT NULL,
-  	description VARCHAR(128) COLLATE pg_catalog.default NOT NULL,
-	unit_id UUID NOT NULL, 
-	customer_location_id UUID,
-	unit_location_id UUID NOT NULL,
-    creation_date timestamp NOT NULL,
-	CONSTRAINT unit_location_history_pkey PRIMARY KEY (id),
-	CONSTRAINT fk_unit_location FOREIGN KEY (unit_location_id) REFERENCES unit_location (id),
-	CONSTRAINT fk_unit FOREIGN KEY (unit_id) REFERENCES unit (id),
-	CONSTRAINT fk_location FOREIGN KEY (location_id) REFERENCES location (id),
-	CONSTRAINT fk_customer_location FOREIGN KEY (customer_location_id) REFERENCES customer_location (id)
+CREATE TABLE unit_history (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  unit_id UUID NOT NULL,
+  location_id UUID NOT NULL,
+  user_id UUID NOT NULL,
+  creation_date TIMESTAMP,
+  FOREIGN KEY (unit_id) REFERENCES unit (id),
+  FOREIGN KEY (location_id) REFERENCES location (id),
+  FOREIGN KEY (user_id) REFERENCES "user" (id)
 );
 
 
@@ -123,3 +98,31 @@ CREATE TABLE IF NOT EXISTS posts
     CONSTRAINT posts_pkey PRIMARY KEY (id),
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES "user" (id)
 );
+
+
+-- Alter posts.title column
+ALTER TABLE posts
+ALTER COLUMN title TYPE VARCHAR(128) COLLATE pg_catalog.default;
+
+-- Alter posts.content column
+ALTER TABLE posts
+ALTER COLUMN content TYPE VARCHAR(256) COLLATE pg_catalog.default;
+
+-- Alter unit.description column
+ALTER TABLE unit
+ALTER COLUMN description TYPE VARCHAR(256) COLLATE pg_catalog.default;
+
+-- Alter user.image_path column (change type)
+ALTER TABLE "user"
+ALTER COLUMN image_path TYPE TEXT;
+
+-- Alter user.image_path column (set default value)
+ALTER TABLE "user"
+ALTER COLUMN image_path SET DEFAULT NULL;
+
+-- Rename user.image_path column
+ALTER TABLE "user"
+RENAME COLUMN image_path TO image;
+
+ALTER TABLE "location"
+ALTER COLUMN customer_id SET DEFAULT NULL;

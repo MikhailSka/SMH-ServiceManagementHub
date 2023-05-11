@@ -6,7 +6,7 @@ import { getUnits } from './getUnits';
 import { showSnackbar } from '../snackbarActions/showSnackbar';
 import { getAccessToken } from 'config/getAssessToken';
 import { api } from 'config/apiConfig';
-import { IUnit } from '../../../models/Unit/IUnit';
+import { IUnit } from '../../../models/IUnit';
 
 export const postUnit = (unit: IUnit): ThunkAction<Promise<void>, RootState, undefined, AnyAction> =>
   async (dispatch: ThunkDispatch<RootState, undefined, AnyAction>) => {

@@ -1,6 +1,6 @@
 export const customerIdValidation = {
     validate: (value: string) => {
-        if (value.toString() !== 'true' && value.toString() !=='false') {
+        if (!value) {
             return 'Choose an option'
         }
         return true;

@@ -24,6 +24,10 @@ export const useUnitTableColumns = (units: any[]) => {
       name: 'product_code',
     },
     {
+      label: 'Location',
+      name: 'location_name',
+    },
+    {
       label: 'Device Name',
       name: 'device_name',
     },

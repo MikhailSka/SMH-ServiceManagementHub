@@ -4,9 +4,10 @@ import { Grid, Box } from '@mui/material';
 import { EmailInput } from 'components/Inputs/EmailInput/Components/EmailInput';
 import { ChangeButton } from 'components/Buttons/Components/ChangeButton';
 import { useEmailForm } from './useEmailForm';
+import { IUser } from 'models/IUser';
 
 interface EmailFormProps {
-  userData: any;
+  userData: IUser;
 }
 
 export const EmailForm: React.FC<EmailFormProps> = ({ userData }) => {

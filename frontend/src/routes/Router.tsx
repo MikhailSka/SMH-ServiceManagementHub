@@ -17,6 +17,10 @@ import SingUpPage from 'pages/auth/SingUpPage'
 const HomePage = React.lazy(() => import('pages/user/HomePage'))
 const SettingsPage = React.lazy(() => import('pages/user/Settings'))
 const DevicePage = React.lazy(() => import('pages/admin/DevicePage'))
+const CustomerPage = React.lazy(() => import('pages/admin/CustomerPage'))
+const OperatorPage = React.lazy(() => import('pages/admin/OperatorPage'))
+const LocationPage = React.lazy(() => import('pages/admin/LocationPage'))
+const UnitPage = React.lazy(() => import('pages/admin/UnitPage'))
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,14 +37,6 @@ export const router = createBrowserRouter(
               </UserRouteWrap>
             }
           />
-          {/* <Route
-            path="posts"
-            element={
-              <UserRouteWrap>
-                <PostsPage />
-              </UserRouteWrap>
-            }
-          /> */}
           <Route
             path="settings"
             element={
@@ -50,13 +46,55 @@ export const router = createBrowserRouter(
             }
           />
           <Route
-            path="device"
+            path="service"
             element={
-              <AdminRouteWrap>
-                <DevicePage />
-              </AdminRouteWrap>
+              <UserRouteWrap>
+                <SettingsPage />
+              </UserRouteWrap>
             }
           />
+          <Route path="tables">
+            <Route
+              path="device"
+              element={
+                <AdminRouteWrap>
+                  <DevicePage />
+                </AdminRouteWrap>
+              }
+            />
+            <Route
+              path="operator"
+              element={
+                <AdminRouteWrap>
+                  <OperatorPage />
+                </AdminRouteWrap>
+              }
+            />
+            <Route
+              path="unit"
+              element={
+                <AdminRouteWrap>
+                  <UnitPage />
+                </AdminRouteWrap>
+              }
+            />
+            <Route
+              path="customer"
+              element={
+                <AdminRouteWrap>
+                  <CustomerPage />
+                </AdminRouteWrap>
+              }
+            />
+            <Route
+              path="location"
+              element={
+                <AdminRouteWrap>
+                  <LocationPage />
+                </AdminRouteWrap>
+              }
+            />
+          </Route>
         </Route>
       </Route>
       <Route path="/unactivated" element={<UnactivatedPage />} />

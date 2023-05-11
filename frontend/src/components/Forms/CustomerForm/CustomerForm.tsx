@@ -24,10 +24,10 @@ export const CustomerForm: React.FC<FormProps> = ({ customer }) => {
             <NameInput control={control} errors={errors} register={register} />
           </Grid>
           <Grid item xs={12}>
-            <NipInput control={control} errors={errors} register={register} />
+            <ActiveInput control={control} errors={errors} register={register} />
           </Grid>
           <Grid item xs={12}>
-            <ActiveInput control={control} errors={errors} register={register} />
+            <NipInput control={control} errors={errors} register={register} />
           </Grid>
           <Grid item xs={12} container justifyContent="flex-end">
             <ConfirmButton handleAction={handleSubmit(onSubmit)} />

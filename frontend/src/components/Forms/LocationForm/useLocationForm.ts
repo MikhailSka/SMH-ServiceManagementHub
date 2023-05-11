@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 import { useAppDispatch } from 'store/hooks';
+import { getCustomers } from 'store/actions/customerActions/getCustomers';
 import { postLocation } from 'store/actions/locationActions/postLocation';
 import { updateLocation } from 'store/actions/locationActions/updateLocation';
 import { ILocation } from '../../../models/ILocation';
@@ -10,6 +12,7 @@ interface UseLocationFormProps {
 }
 
 export const useLocationForm = ({ location }: UseLocationFormProps) => {
+  const [loading, setLoading] = useState(true);
   const dispatch = useAppDispatch();
   const {
     control,
@@ -36,5 +39,19 @@ export const useLocationForm = ({ location }: UseLocationFormProps) => {
     }
   };
 
-  return { control, handleSubmit, register, errors, onSubmit };
+  useEffect(() => {
+    const fetchOperatorsAndDevices = async () => {
+      try {
+        await Promise.all([dispatch(getCustomers())]);
+      } catch (error) {
+        console.error('Error fetching customers:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOperatorsAndDevices();
+  }, [dispatch]);
+
+  return { control, handleSubmit, register, errors, onSubmit, loading };
 };

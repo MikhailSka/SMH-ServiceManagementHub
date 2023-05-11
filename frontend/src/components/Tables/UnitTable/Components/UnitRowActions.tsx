@@ -1,4 +1,4 @@
-import { IUnitView } from 'models/Unit/IUnitView'
+import { IUnitView } from 'models/IUnit'
 import { RowActions } from 'components/Tables/Common/RowActions'
 import { useUnitActions } from '../Hooks/useUnitActions'
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
 import { RootState } from '../../store/store'
+import { useAppSelector } from 'store/hooks'
 import { getAccessToken } from 'config/getAssessToken'
 import { isTokenExpired } from 'config/isTokenExpired'
 import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner'
@@ -12,7 +12,7 @@ interface UserWrapProps {
 }
 
 export const UserRouteWrap: React.FC<UserWrapProps> = ({ children }) => {
-  const { isAuthenticated , userData} = useSelector(
+  const { isAuthenticated , userData} = useAppSelector(
     (state: RootState) => state.user
   )
 

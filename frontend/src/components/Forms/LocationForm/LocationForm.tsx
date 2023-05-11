@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
-import { Grid } from '@mui/material';
+import { Box, Grid, Skeleton } from '@mui/material';
 
 import { NameInput } from 'components/Inputs/NameInput/Components/NameInput';
 import { ActiveInput } from 'components/Inputs/ActiveInput/Components/ActiveInput';
+import { CustomerIdInput } from 'components/Inputs/CustomerIdInput/Components/CustomerIdInput';
 import { ConfirmButton } from 'components/Buttons/Components/ConfirmButton';
 import { useLocationForm } from './useLocationForm';
 import { ILocation } from '../../../models/ILocation';
@@ -13,7 +13,7 @@ interface FormProps {
 }
 
 export const LocationForm: React.FC<FormProps> = ({ location }) => {
-  const { control, handleSubmit, register, errors, onSubmit } = useLocationForm({ location });
+  const { control, handleSubmit, register, errors, onSubmit, loading } = useLocationForm({ location });
 
   return (
     <form>
@@ -24,6 +24,17 @@ export const LocationForm: React.FC<FormProps> = ({ location }) => {
           </Grid>
           <Grid item xs={12}>
             <ActiveInput control={control} errors={errors} register={register} />
+          </Grid>
+          <Grid item xs={12}>
+            {loading ? (
+              <Skeleton animation="wave" height={64} />
+            ) : (
+              <CustomerIdInput
+                control={control}
+                errors={errors}
+                register={register}
+              />
+            )}
           </Grid>
           <Grid item xs={12} container justifyContent="flex-end">
             <ConfirmButton handleAction={handleSubmit(onSubmit)} />
