@@ -1,6 +1,6 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { AddButton } from 'components/Buttons/Components/IconButtons/AddButton'
-import { DeviceForm } from 'components/Forms/DeviceForm/DeviceForm'
+import { DeviceForm } from 'components/Forms/TableForms/DeviceForm/DeviceForm'
 
 export const DeviceTableToolbar: React.FC = () => {
   const { openDialog } = useDialogContext()

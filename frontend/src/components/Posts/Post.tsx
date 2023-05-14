@@ -11,12 +11,13 @@ import {
 } from '@mui/material'
 
 import { IPost } from 'models/IPost'
-import { formatDateTime } from 'components/Tables/Common/ColumnsOptions/Date/formatDateTime'
+import { formatDate } from 'components/Tables/Common/ColumnsOptions/Date/formatTime'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
 import { IUser } from 'models/IUser'
 import { getUser } from 'store/actions/userActions/getUser'
 import { stringAvatar } from '../../hooks/stringAvatar'
 import { PostActions } from './PostActions'
+import { type } from 'os'
 
 interface PostProps {
   post: IPost
@@ -55,7 +56,7 @@ export const Post: React.FC<PostProps> = ({
           </Tooltip>
         }
         title={post.title}
-        subheader={`${formatDateTime(post.creation_date)}`}
+        subheader={`${formatDate(post.creation_date, 'datetime')}`}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">

@@ -1,9 +1,9 @@
-import { IUnitView } from 'models/IUnit'
+import { IUnit } from 'models/IUnit'
 import { RowActions } from 'components/Tables/Common/RowActions'
 import { useUnitActions } from '../Hooks/useUnitActions'
 
 interface UnitRowActionsProps {
-  unit: IUnitView
+  unit: IUnit
 }
 
 export const UnitRowActions: React.FC<UnitRowActionsProps> = ({ unit }) => {

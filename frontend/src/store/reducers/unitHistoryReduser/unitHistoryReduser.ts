@@ -1,41 +1,36 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUnitHistory } from 'models/IUnitHistory';
-import { UnitLocationHistoryState } from './UnitHistoryState';
+import { UnitHistoryState } from './UnitHistoryState';
 
-const initialState: UnitLocationHistoryState = {
-  unitLocationHistories: [],
-  selectedUnitLocationHistory: null,
+const initialState: UnitHistoryState = {
+  unitHistories: [],
   isLoading: false,
   error: null,
 };
 
-const unitLocationHistorySlice = createSlice({
-  name: 'unitLocationHistories',
+const unitHistorySlice = createSlice({
+  name: 'unitHistories',
   initialState,
   reducers: {
-    getUnitLocationHistoriesStart(state) {
+    getUnitHistoriesStart(state) {
       state.isLoading = true;
       state.error = null;
     },
-    getUnitLocationHistoriesSuccess(state, action: PayloadAction<IUnitHistory[]>) {
+    getUnitHistoriesSuccess(state, action: PayloadAction<IUnitHistory[]>) {
       state.isLoading = false;
-      state.unitLocationHistories = action.payload;
+      state.unitHistories = action.payload;
     },
-    getUnitLocationHistoriesFailure(state, action: PayloadAction<string>) {
+    getUnitHistoriesFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
-    },
-    selectUnitLocationHistory(state, action: PayloadAction<IUnitHistory>) {
-      state.selectedUnitLocationHistory = action.payload;
-    },
+    }
   },
 });
 
 export const {
-  getUnitLocationHistoriesStart,
-  getUnitLocationHistoriesSuccess,
-  getUnitLocationHistoriesFailure,
-  selectUnitLocationHistory,
-} = unitLocationHistorySlice.actions;
+  getUnitHistoriesStart,
+  getUnitHistoriesSuccess,
+  getUnitHistoriesFailure,
+} = unitHistorySlice.actions;
 
-export default unitLocationHistorySlice.reducer;
+export default unitHistorySlice.reducer;

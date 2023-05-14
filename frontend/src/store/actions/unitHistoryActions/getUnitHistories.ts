@@ -6,23 +6,24 @@ import { api } from 'config/apiConfig';
 import { getAccessToken } from 'config/getAssessToken';
 import { IUnitHistory } from 'models/IUnitHistory';
 import {
-  getUnitLocationHistoriesStart,
-  getUnitLocationHistoriesSuccess,
-  getUnitLocationHistoriesFailure,
+  getUnitHistoriesStart,
+  getUnitHistoriesSuccess,
+  getUnitHistoriesFailure,
 } from 'store/reducers/unitHistoryReduser/unitHistoryReduser';
 import { showSnackbar } from '../snackbarActions/showSnackbar';
 
-export const getUnitLocationHistories = (): ThunkAction<Promise<void>, RootState, undefined, AnyAction> => async (
+
+export const getUnitHistories = (id: string): ThunkAction<Promise<void>, RootState, undefined, AnyAction> => async (
   dispatch: ThunkDispatch<RootState, undefined, AnyAction>
 ) => {
   try {
-    dispatch(getUnitLocationHistoriesStart());
-    const response = await api.get<IUnitHistory[]>(`unit_location_history/get`, {
+    dispatch(getUnitHistoriesStart());
+    const response = await api.get<IUnitHistory[]>(`unit_history/get/${id}`, {
       headers: { Authorization: `Bearer ${getAccessToken()}` },
     });
-    dispatch(getUnitLocationHistoriesSuccess(response.data));
+    dispatch(getUnitHistoriesSuccess(response.data));
   } catch (error) {
-    dispatch(getUnitLocationHistoriesFailure('Server Error :('));
+    dispatch(getUnitHistoriesFailure('Server Error :('));
     dispatch(showSnackbar('Server Error :(', 'error'));
   }
 };

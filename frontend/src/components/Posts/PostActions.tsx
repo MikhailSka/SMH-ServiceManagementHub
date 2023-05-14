@@ -8,7 +8,7 @@ import { useDialogContext } from 'components/Dialogs/Context/useDialogContext';
 import { TrashButton } from 'components/Buttons/Components/IconButtons/TrashButton';
 import { PenButton } from 'components/Buttons/Components/IconButtons/PenButton';
 import { DeleteButton } from 'components/Buttons/Components/TextButtons/DeleteButton';
-import { PostForm } from 'components/Forms/PostForm/PostForm';
+import { PostForm } from 'components/Forms/UsersForm/PostForm/PostForm';
 
 interface PostActionsProps {
   post: IPost;

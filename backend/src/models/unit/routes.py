@@ -35,6 +35,7 @@ def update_unit(id):
     unit.device_id = request.json['device_id']
     unit.operator_id = request.json['operator_id']
     unit.description = request.json['description']
+    unit.service_date = request.json['service_date']
     unit.modification_date = datetime.now()
 
     db.session.commit()
@@ -62,11 +63,12 @@ def add_unit():
     device_id = request.json['device_id']
     operator_id = request.json['operator_id']
     description = request.json['description']
+    service_date = request.json['service_date']
     creation_date = now
     modification_date = now
 
     new_unit = Unit(active,name, serial_number, product_code,location_id, device_id,
-                    operator_id, description, creation_date, modification_date)
+                    operator_id, description, creation_date, modification_date,service_date)
 
     db.session.add(new_unit)
     db.session.commit()

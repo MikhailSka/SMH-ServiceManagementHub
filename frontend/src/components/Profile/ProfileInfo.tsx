@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography, Grid } from '@mui/material';
 
-import { NameForm } from 'components/Forms/NameForm/NameForm';
-import { EmailForm } from 'components/Forms/EmailForm/EmailForm';
+import { NameForm } from 'components/Forms/UsersForm/NameForm/NameForm';
+import { EmailForm } from 'components/Forms/UsersForm/EmailForm/EmailForm';
 
 interface ProfileInfoProps {
   userData: any;

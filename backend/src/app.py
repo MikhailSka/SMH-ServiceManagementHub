@@ -29,6 +29,7 @@ from .models.unit.routes import unit
 from .models.unit_history.routes import unit_history
 from .models.user.routes import user
 from .models.post.routes import post
+from .models.service.routes import service
 
 app.register_blueprint(customer)
 app.register_blueprint(device)
@@ -38,3 +39,4 @@ app.register_blueprint(unit)
 app.register_blueprint(unit_history)
 app.register_blueprint(user)
 app.register_blueprint(post)
+app.register_blueprint(service)

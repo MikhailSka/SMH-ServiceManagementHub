@@ -3,7 +3,7 @@ import { useAppDispatch } from 'store/hooks'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { DeleteConfirmation } from 'components/Alerts/DeleteConfirmation'
 import { deleteDevice } from 'store/actions/deviceActions/deteteDevice'
-import { DeviceForm } from 'components/Forms/DeviceForm/DeviceForm'
+import { DeviceForm } from 'components/Forms/TableForms/DeviceForm/DeviceForm'
 
 export const useDeviceActions = (device: IDevice) => {
   const { openDialog } = useDialogContext()

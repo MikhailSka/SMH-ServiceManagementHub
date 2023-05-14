@@ -2,7 +2,7 @@ import { ICustomer } from 'models/ICustomer'
 import { useAppDispatch } from 'store/hooks'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { deleteCustomer } from 'store/actions/customerActions/deleteCustomer'
-import { CustomerForm } from 'components/Forms/CustomerForm/CustomerForm'
+import { CustomerForm } from 'components/Forms/TableForms/CustomerForm/CustomerForm'
 import { DeleteConfirmation } from 'components/Alerts/DeleteConfirmation'
 
 export const useCustomerActions = (customer: ICustomer) => {

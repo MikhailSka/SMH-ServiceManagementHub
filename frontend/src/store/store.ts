@@ -20,10 +20,12 @@ import operatorReduser from './reducers/operatorReduser/operatorReduser';
 import { OperatorState } from './reducers/operatorReduser/OperatorState';
 import unitReduser from './reducers/unitReduser/unitReduser';
 import { UnitState } from './reducers/unitReduser/UnitState';
-import unitLocationHistoryReduser from './reducers/unitHistoryReduser/unitHistoryReduser';
-import { UnitLocationHistoryState } from './reducers/unitHistoryReduser/UnitHistoryState';
+import unitHistoryReduser from './reducers/unitHistoryReduser/unitHistoryReduser';
+import { UnitHistoryState } from './reducers/unitHistoryReduser/UnitHistoryState';
 import sideNavBarReducer from './reducers/sideNavBarReducer/sideNavBarReducer';
 import { SideNavBarState } from './reducers/sideNavBarReducer/SideNavBarState';
+import serviceReduser from './reducers/serviceReduser/serviceReduser';
+import { ServiceState } from './reducers/serviceReduser/ServiceState';
 
 const persistConfig = {
   key: 'root',
@@ -40,8 +42,9 @@ const rootReducer = combineReducers({
   location: locationReduser,
   operator: operatorReduser,
   unit: unitReduser,
-  unitLocationHistory: unitLocationHistoryReduser,
-  sideNavBar: sideNavBarReducer
+  unitHistory: unitHistoryReduser,
+  sideNavBar: sideNavBarReducer,
+  service: serviceReduser
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -69,8 +72,9 @@ export interface RootState {
   location: LocationState;
   operator: OperatorState;
   unit: UnitState;
-  unitLocationHistory: UnitLocationHistoryState;
+  unitHistory: UnitHistoryState;
   sideNavBar: SideNavBarState;
+  service: ServiceState;
 }
 
 export type AppDispatch = typeof store.dispatch;

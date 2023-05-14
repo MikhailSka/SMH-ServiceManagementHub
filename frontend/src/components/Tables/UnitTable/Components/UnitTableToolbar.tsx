@@ -1,6 +1,6 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { AddButton } from 'components/Buttons/Components/IconButtons/AddButton'
-import { UnitForm } from 'components/Forms/UnitForm/UnitForm'
+import { UnitForm } from 'components/Forms/TableForms/UnitForm/UnitForm'
 
 export const UnitTableToolbar: React.FC = () => {
   const { openDialog } = useDialogContext()

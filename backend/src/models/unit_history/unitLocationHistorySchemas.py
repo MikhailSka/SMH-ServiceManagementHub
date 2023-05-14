@@ -1,18 +1,17 @@
 from ...db import ma
 
 
-class UnitHistoryViewSchema(ma.Schema):
+class UnitHistorySchema(ma.Schema):
     class Meta:
         fields = ('id', 'unit_id', 'location_id',
-                  'user_id', 'creation_date')
+                  'user_id','description','service_date', 'creation_date')
 
 class UnitHistoryViewSchema(ma.Schema):
     class Meta:
         fields = ('id', 'unit_id', 'unit_name', 'location_id', 'location_name',
-                  'user_id', 'user_name', 'creation_date')
+                  'user_id', 'user_name','description','service_date', 'creation_date')
 
 
-unit_history_view_schema = UnitHistoryViewSchema()
-unit_history_view_schema = UnitHistoryViewSchema(many=True)
+unit_histories_view_schema = UnitHistoryViewSchema(many=True)
 
-unit_history_schema = UnitHistoryViewSchema()
+unit_history_schema = UnitHistorySchema()

@@ -22,8 +22,10 @@ class UnitView(db.Model):
                               nullable=False, default=datetime.now())
     modification_date = db.Column(
         db.DateTime, unique=True, nullable=False, default=datetime.now())
+    service_date = db.Column(
+        db.DateTime, unique=True, nullable=False)
 
-    def __init__(self, id, active, name, serial_number, product_code, location_id, location_name, device_id, device_name, operator_id, operator_name, description, creation_date, modification_date):
+    def __init__(self, id, active, name, serial_number, product_code, location_id, location_name, device_id, device_name, operator_id, operator_name, description, creation_date, modification_date,service_date):
         self.id = id
         self.name = name
         self.active = active
@@ -38,8 +40,9 @@ class UnitView(db.Model):
         self.description = description
         self.creation_date = creation_date
         self.modification_date = modification_date
+        self.service_date = service_date
 
-    def __init__(self, active, name, serial_number, product_code, location_id, location_name, device_id, device_name, operator_id, operator_name, description, creation_date, modification_date):
+    def __init__(self, active, name, serial_number, product_code, location_id, location_name, device_id, device_name, operator_id, operator_name, description, creation_date, modification_date,service_date):
         self.name = name
         self.active = active
         self.serial_number = serial_number
@@ -53,3 +56,4 @@ class UnitView(db.Model):
         self.description = description
         self.creation_date = creation_date
         self.modification_date = modification_date
+        self.service_date = service_date

@@ -32,5 +32,5 @@
     "include": [
       "./src/**/*.ts",
       "./src/**/*.tsx"
-, "src/components/Tables/Common/ColumnsOptions/Active/activeDisplay.tsxc/components/Tables/Common/ColumnsOptions/Active/activeOption.tss"    ]
+       ]
   }

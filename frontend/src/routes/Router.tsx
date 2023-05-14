@@ -20,6 +20,7 @@ const DevicePage = React.lazy(() => import('pages/admin/DevicePage'))
 const CustomerPage = React.lazy(() => import('pages/admin/CustomerPage'))
 const OperatorPage = React.lazy(() => import('pages/admin/OperatorPage'))
 const LocationPage = React.lazy(() => import('pages/admin/LocationPage'))
+const ServicePage = React.lazy(() => import('pages/user/ServicePage'))
 const UnitPage = React.lazy(() => import('pages/admin/UnitPage'))
 
 export const router = createBrowserRouter(
@@ -49,7 +50,7 @@ export const router = createBrowserRouter(
             path="service"
             element={
               <UserRouteWrap>
-                <SettingsPage />
+                <ServicePage />
               </UserRouteWrap>
             }
           />

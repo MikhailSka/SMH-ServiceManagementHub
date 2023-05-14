@@ -1,6 +1,6 @@
 import { MUIDataTableColumn } from 'mui-datatables'
 
-import { getDateOptions } from 'components/Tables/Common/ColumnsOptions/Date/dateOption'
+import { getDateOptions } from 'components/Tables/Common/ColumnsOptions/Date/getDateOptions'
 import { getActiveOptions } from 'components/Tables/Common/ColumnsOptions/Active/activeOption'
 import LocationRowActions from '../Components/LocationRowActions'
 

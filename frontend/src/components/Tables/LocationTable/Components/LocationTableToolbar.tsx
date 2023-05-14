@@ -1,6 +1,6 @@
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext';
 import { AddButton } from 'components/Buttons/Components/IconButtons/AddButton';
-import { LocationForm } from 'components/Forms/LocationForm/LocationForm';
+import { LocationForm } from 'components/Forms/TableForms/LocationForm/LocationForm';
 
 export const LocationTableToolbar: React.FC = () => {
   const { openDialog } = useDialogContext();
