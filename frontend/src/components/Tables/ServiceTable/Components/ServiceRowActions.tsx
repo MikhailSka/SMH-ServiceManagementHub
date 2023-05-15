@@ -10,7 +10,7 @@ interface ServiceRowActionsProps {
 }
 
 export const ServiceRowActions: React.FC<ServiceRowActionsProps> = ({
-  service,
+  service
 }) => {
    const { handleUpdate, handleHistory } = useServiceActions(service)
 

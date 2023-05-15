@@ -19,4 +19,4 @@ export const useServiceActions = (service: IService) => {
   }
 
   return { handleUpdate, handleHistory }
-}
+} 

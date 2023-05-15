@@ -6,7 +6,9 @@ import { getDescriptionOption } from 'components/Tables/Common/ColumnsOptions/De
 import { getActiveOptions } from 'components/Tables/Common/ColumnsOptions/Active/activeOption'
 import { CustomerIcon } from 'components/IconsAndAnimations/CustomerIcon'
 
-export const useServiceTableColumns = (services: any[]) => {
+export const useServiceTableColumns = (
+  services: any[],
+) => {
   const columns: MUIDataTableColumn[] = [
     {
       label: 'Active',
@@ -72,7 +74,11 @@ export const useServiceTableColumns = (services: any[]) => {
       name: 'actions',
       options: {
         customBodyRender: (_, tableMeta) => {
-          return <ServiceRowActions service={services[tableMeta.rowIndex]} />
+          return (
+            <ServiceRowActions
+          service={services[tableMeta.rowIndex]}
+        />
+          )
         },
         filter: false,
         sort: false,

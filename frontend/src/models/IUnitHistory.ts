@@ -6,5 +6,7 @@ export interface IUnitHistory{
     location_name: string;
     user_id?: string;
     user_name: string;
+    service_date: string;
+    description: string;
     creation_date?: string;
 }

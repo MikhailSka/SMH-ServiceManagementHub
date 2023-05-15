@@ -57,10 +57,4 @@ export const useStyles = makeStyles(() => ({
       zIndex: 0,
     },
   },
-  noTableBorder: {
-    '& .MuiDataTables-paper': {
-      boxShadow: 'none',
-      border: 'none',
-    },
-  },
 }))
