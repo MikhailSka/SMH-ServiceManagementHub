@@ -2,7 +2,7 @@ import { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from 'store/hooks'
-import { login } from 'store/actions/userActions/login'
+import { login } from 'store/actions/userActions/userLoginingActions/login'
 
 interface LoginFormInputs {
   email: string

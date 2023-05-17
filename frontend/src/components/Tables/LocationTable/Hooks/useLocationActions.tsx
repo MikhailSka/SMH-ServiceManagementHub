@@ -2,7 +2,7 @@ import { ILocation } from 'models/ILocation'
 import { useAppDispatch } from 'store/hooks'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { DeleteConfirmation } from 'components/Alerts/DeleteConfirmation'
-import { deleteLocation } from 'store/actions/locationActions/deleteLocation'
+import { deleteLocation } from 'store/actions/tableActions/locationActions/deleteLocation'
 import { LocationForm } from 'components/Forms/TableForms/LocationForm/LocationForm'
 
 export const useLocationActions = (location: ILocation) => {

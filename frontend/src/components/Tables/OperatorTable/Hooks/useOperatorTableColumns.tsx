@@ -14,6 +14,9 @@ export const useOperatorTableColumns = (operators: any[]) => {
     {
       label: 'Name',
       name: 'name',
+      options: {
+        filter: false,
+      },
     },
     {
       name: 'creation_date',

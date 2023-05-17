@@ -2,7 +2,7 @@ import { IUnit } from 'models/IUnit'
 import { useAppDispatch } from 'store/hooks'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
 import { DeleteConfirmation } from 'components/Alerts/DeleteConfirmation'
-import { deleteUnit } from 'store/actions/unitActions/deleteUnit'
+import { deleteUnit } from 'store/actions/tableActions/unitActions/deleteUnit'
 import { UnitForm } from 'components/Forms/TableForms/UnitForm/UnitForm'
 
 export const useUnitActions = (unit: IUnit) => {

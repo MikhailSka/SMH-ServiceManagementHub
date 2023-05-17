@@ -5,7 +5,7 @@ import Alert from '@mui/material/Alert';
 import { useAppDispatch } from 'store/hooks';
 import { useAppSelector } from 'store/hooks';
 import { RootState } from 'store/store';
-import { hideSnackbar } from 'store/actions/snackbarActions/hideSnackbar';
+import { hideSnackbar } from 'store/actions/componentsActions/snackbarActions/hideSnackbar';
 
 export const AlertSnackbar: React.FC = () => {
     const { message, type, isOpen } = useAppSelector((state: RootState) => state.snackbar); // Get isOpen from the Redux state

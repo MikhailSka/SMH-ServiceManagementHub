@@ -4,28 +4,28 @@ import { persistStore } from 'redux-persist';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import deviceReducer from './reducers/deviceReducer/deviceReducer';
-import { DeviceState } from './reducers/deviceReducer/DeviceState';
+import deviceReducer from './reducers/tableRedusers/deviceReducer/deviceReducer';
+import { DeviceState } from './reducers/tableRedusers/deviceReducer/DeviceState';
 import userReducer from './reducers/userReducer/UserReducer';
 import { UserState } from './reducers/userReducer/UserState';
-import postReducer from './reducers/postReduser/postReducer';
-import { PostState } from './reducers/postReduser/PostState';
-import snackbarReducer from './reducers/snackbarReduser/snackbarReducer';
-import { SnackbarState } from './reducers/snackbarReduser/SnackbarState';
-import customerReduser from './reducers/customerReduser/customerReduser';
-import { CustomerState } from './reducers/customerReduser/CustomerState';
-import locationReduser from './reducers/locationReduser/locationReduser';
-import { LocationState } from './reducers/locationReduser/LocationState';
-import operatorReduser from './reducers/operatorReduser/operatorReduser';
-import { OperatorState } from './reducers/operatorReduser/OperatorState';
-import unitReduser from './reducers/unitReduser/unitReduser';
-import { UnitState } from './reducers/unitReduser/UnitState';
-import unitHistoryReduser from './reducers/unitHistoryReduser/unitHistoryReduser';
-import { UnitHistoryState } from './reducers/unitHistoryReduser/UnitHistoryState';
-import sideNavBarReducer from './reducers/sideNavBarReducer/sideNavBarReducer';
-import { SideNavBarState } from './reducers/sideNavBarReducer/SideNavBarState';
-import serviceReduser from './reducers/serviceReduser/serviceReduser';
-import { ServiceState } from './reducers/serviceReduser/ServiceState';
+import postReducer from './reducers/tableRedusers/postReduser/postReducer';
+import { PostState } from './reducers/tableRedusers/postReduser/PostState';
+import snackbarReducer from './reducers/componentsRedusers/snackbarReduser/snackbarReducer';
+import { SnackbarState } from './reducers/componentsRedusers/snackbarReduser/SnackbarState';
+import customerReduser from './reducers/tableRedusers/customerReduser/customerReduser';
+import { CustomerState } from './reducers/tableRedusers/customerReduser/CustomerState';
+import locationReduser from './reducers/tableRedusers/locationReduser/locationReduser';
+import { LocationState } from './reducers/tableRedusers/locationReduser/LocationState';
+import operatorReduser from './reducers/tableRedusers/operatorReduser/operatorReduser';
+import { OperatorState } from './reducers/tableRedusers/operatorReduser/OperatorState';
+import unitReduser from './reducers/tableRedusers/unitReduser/unitReduser';
+import { UnitState } from './reducers/tableRedusers/unitReduser/UnitState';
+import unitHistoryReduser from './reducers/tableRedusers/unitHistoryReduser/unitHistoryReduser';
+import { UnitHistoryState } from './reducers/tableRedusers/unitHistoryReduser/UnitHistoryState';
+import sideNavBarReducer from './reducers/componentsRedusers/sideNavBarReducer/sideNavBarReducer';
+import { SideNavBarState } from './reducers/componentsRedusers/sideNavBarReducer/SideNavBarState';
+import serviceReduser from './reducers/tableRedusers/serviceReduser/serviceReduser';
+import { ServiceState } from './reducers/tableRedusers/serviceReduser/ServiceState';
 
 const persistConfig = {
   key: 'root',

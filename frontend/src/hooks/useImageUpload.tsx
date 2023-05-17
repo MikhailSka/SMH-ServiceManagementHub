@@ -1,8 +1,8 @@
 import imageCompression from 'browser-image-compression'
 
 import { useAppDispatch } from 'store/hooks'
-import { uploadImage } from 'store/actions/userActions/uploadImage'
-import { showSnackbar } from 'store/actions/snackbarActions/showSnackbar'
+import { uploadImage } from 'store/actions/userActions/userProfileActions/uploadImage'
+import { showSnackbar } from 'store/actions/componentsActions/snackbarActions/showSnackbar'
 
 export const useImageUpload = (userId: string) => {
   const dispatch = useAppDispatch()

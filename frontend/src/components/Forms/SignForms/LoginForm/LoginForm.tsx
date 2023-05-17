@@ -16,7 +16,7 @@ export const LoginForm: React.FC = () => {
 
   return (
     <Container component="main" maxWidth="sm">
-      <Box className={classes.registerBox}>
+      <Box className={classes.smBox}>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { getAccessToken } from './getAssessToken';
+import { getAccessToken } from '../security/getAssessToken';
 
 const API_URL = 'http://localhost:5000';
 

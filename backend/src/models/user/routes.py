@@ -2,11 +2,8 @@ from flask import request, Blueprint, jsonify
 from werkzeug.security import generate_password_hash
 from flask_jwt_extended import unset_jwt_cookies
 from werkzeug.security import check_password_hash
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import set_access_cookies
-from flask_jwt_extended import jwt_required
-from datetime import timedelta
-from datetime import datetime
+from flask_jwt_extended import create_refresh_token, create_access_token, get_jwt_identity, jwt_required, set_access_cookies, create_access_token
+from datetime import datetime, timedelta
 from PIL import Image
 from io import BytesIO
 import base64
@@ -193,9 +190,22 @@ def login():
     if not user or not check_password_hash(user.password, password):
         return jsonify({"error": "Invalid email or password"}), 401
 
-    access_token = create_access_token(identity=user.email, expires_delta=timedelta(
-        hours=1), additional_claims={"id": user.id})
+    access_token = create_access_token(identity=user.email,expires_delta=timedelta(
+        minutes=6), additional_claims={"id": user.id})
+    refresh_token = create_refresh_token(identity=user.email,expires_delta=timedelta(
+        hours=1))
+    
+    resp = jsonify({'access_token': access_token, 'refresh_token': refresh_token, 'image': user.image})
+    set_access_cookies(resp, access_token)
+    return resp, 200
 
-    resp = jsonify({'access_token': access_token, 'image': user.image})
+
+@user.route('/refresh', methods=['POST'])
+@jwt_required(refresh=True)
+def refresh():
+    current_user = get_jwt_identity()
+    access_token = create_access_token(identity=current_user)
+    
+    resp = jsonify({'access_token': access_token})
     set_access_cookies(resp, access_token)
     return resp, 200

@@ -5,7 +5,7 @@ import { Box } from '@mui/material'
 import { useStyles } from '../../../../useStyles'
 import { RootState } from '../../../../store/store'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { getCustomers } from 'store/actions/customerActions/getCustomers'
+import { getCustomers } from 'store/actions/tableActions/customerActions/getCustomers'
 import { useCustomerTableColumns } from '../Hooks/useCustomerTableColumns'
 import { LoadingTableBody } from '../../Common/LoadingTableBody'
 import { CustomerTableToolbar } from './CustomerTableToolbar'
@@ -31,7 +31,7 @@ const CustomerTable: React.FC = () => {
   )
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <MUIDataTable
         title={'Customers'}
         data={customers}

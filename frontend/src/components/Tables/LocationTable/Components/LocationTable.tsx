@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 
 import { RootState } from '../../../../store/store';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { getLocations } from 'store/actions/locationActions/getLocations';
+import { getLocations } from 'store/actions/tableActions/locationActions/getLocations';
 import { useLocationTableColumns } from '../Hooks/useLocationTableColumns';
 import { LoadingTableBody } from '../../Common/LoadingTableBody';
 import { LocationTableToolbar } from './LocationTableToolbar';
@@ -32,7 +32,7 @@ const LocationTable: React.FC = () => {
   );
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <MUIDataTable
         title={'Locations'}
         data={locations}

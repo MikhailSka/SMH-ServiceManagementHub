@@ -3,7 +3,7 @@ import { useAppDispatch } from 'store/hooks';
 import { Grid, Box, Typography } from '@mui/material';
 
 import { IPost } from 'models/IPost';
-import { deletePost } from 'store/actions/postActions/deletePost';
+import { deletePost } from 'store/actions/tableActions/postActions/deletePost';
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext';
 import { TrashButton } from 'components/Buttons/Components/IconButtons/TrashButton';
 import { PenButton } from 'components/Buttons/Components/IconButtons/PenButton';

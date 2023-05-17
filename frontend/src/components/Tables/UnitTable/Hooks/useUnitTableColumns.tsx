@@ -15,26 +15,44 @@ export const useUnitTableColumns = (units: any[]) => {
     {
       label: 'Name',
       name: 'name',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'Serial Number',
       name: 'serial_number',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'Product Code',
       name: 'product_code',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'Location',
       name: 'location_name',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'Device Name',
       name: 'device_name',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'Operator Name',
       name: 'operator_name',
+      options: {
+        filter: false,
+      },
     },
     {
       name: 'service_date',

@@ -79,7 +79,14 @@ const userReducer = (state = initialState, action: UserActionTypes): UserState =
           email: action.payload.email,
         },
       };
-
+      case 'REFRESH_TOKEN_SUCCESS':
+        return {
+          ...state,
+          isAuthenticated: true,
+          userData: {
+            ...state.userData,
+          },
+        };
       case 'ADD_USER': {
         const index = state.users ? state.users.findIndex((user) => user.id === action.payload.id) : -1;
       

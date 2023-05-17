@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch } from 'store/hooks';
-import { postUnit } from 'store/actions/unitActions/postUnit';
-import { updateUnit } from 'store/actions/unitActions/updateUnit';
-import { getLocations } from 'store/actions/locationActions/getLocations';
-import { getDevices } from 'store/actions/deviceActions/getDevices';
-import { getOperators } from 'store/actions/operatorActions/getOperators';
+import { postUnit } from 'store/actions/tableActions/unitActions/postUnit';
+import { updateUnit } from 'store/actions/tableActions/unitActions/updateUnit';
+import { getLocations } from 'store/actions/tableActions/locationActions/getLocations';
+import { getDevices } from 'store/actions/tableActions/deviceActions/getDevices';
+import { getOperators } from 'store/actions/tableActions/operatorActions/getOperators';
 import { IUnit } from 'models/IUnit';
 
 interface UseUnitFormProps {

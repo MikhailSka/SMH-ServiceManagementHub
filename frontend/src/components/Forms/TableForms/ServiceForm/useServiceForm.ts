@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch } from 'store/hooks';
-import { updateUnitAndCreateHistory } from 'store/actions/serviceAvctions/updateUnitAndCreateHistory';
-import { getLocations } from 'store/actions/locationActions/getLocations';
+import { updateUnitAndCreateHistory } from 'store/actions/tableActions/serviceAvctions/updateUnitAndCreateHistory';
+import { getLocations } from 'store/actions/tableActions/locationActions/getLocations';
 import { useAppSelector } from 'store/hooks';
 import { RootState } from 'store/store';
 import { IService } from 'models/IService';

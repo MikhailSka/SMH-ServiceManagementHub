@@ -2,8 +2,8 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 
 import { RootState } from '../../store/store'
-import { getAccessToken } from 'config/getAssessToken'
-import { isTokenExpired } from 'config/isTokenExpired'
+import { getAccessToken } from 'security/getAssessToken'
+import { isTokenExpired } from 'security/isTokenExpired'
 import { useAppSelector } from 'store/hooks'
 import LoadingSpinner from 'components/IconsAndAnimations/LoadingSpinner'
 

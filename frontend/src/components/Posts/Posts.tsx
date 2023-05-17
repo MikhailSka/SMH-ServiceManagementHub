@@ -10,7 +10,7 @@ import { useAppDispatch } from 'store/hooks'
 import { useAppSelector } from 'store/hooks'
 import { getRandomColor } from '../../hooks/getRandomColor'
 import { PostsToolbar } from 'components/Posts/PostsToolbar'
-import { getPosts } from 'store/actions/postActions/getPosts'
+import { getPosts } from 'store/actions/tableActions/postActions/getPosts'
 
 export const Posts: React.FC = () => {
   const theme = useTheme()
@@ -33,7 +33,7 @@ export const Posts: React.FC = () => {
   }, [])
 
   return (
-    <Box className={classes.box} sx={{ padding: '10px' }}>
+    <Box className={classes.xlBox} sx={{ padding: '10px' }}>
       <PostsToolbar />
 
       {isLoading ? (

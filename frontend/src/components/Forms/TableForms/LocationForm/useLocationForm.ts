@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch } from 'store/hooks';
-import { getCustomers } from 'store/actions/customerActions/getCustomers';
-import { postLocation } from 'store/actions/locationActions/postLocation';
-import { updateLocation } from 'store/actions/locationActions/updateLocation';
+import { getCustomers } from 'store/actions/tableActions/customerActions/getCustomers';
+import { postLocation } from 'store/actions/tableActions/locationActions/postLocation';
+import { updateLocation } from 'store/actions/tableActions/locationActions/updateLocation';
 import { ILocation } from '../../../../models/ILocation';
 
 interface UseLocationFormProps {

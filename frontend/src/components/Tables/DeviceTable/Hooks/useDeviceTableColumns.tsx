@@ -14,6 +14,9 @@ export const useDeviceTableColumns = (devices: any[]) => {
     {
       label: 'Name',
       name: 'name',
+      options: {
+        filter: false,
+      },
     },
     {
       name: 'creation_date',

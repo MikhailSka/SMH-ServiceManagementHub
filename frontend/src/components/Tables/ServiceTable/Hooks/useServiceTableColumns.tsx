@@ -18,23 +18,36 @@ export const useServiceTableColumns = (
     {
       label: 'Name',
       name: 'name',
+      options: {
+        filter: false
+      }
     },
     {
       label: 'Serial Number',
       name: 'serial_number',
+      options: {
+        filter: false
+      }
     },
     {
       label: 'Product Code',
       name: 'product_code',
+      options: {
+        filter: false
+      }
     },
     {
       label: 'Location',
       name: 'location_name',
+      options: {
+        filter: false
+      }
     },
     {
       label: 'Customer',
       name: 'customer_name',
       options: {
+        filter: false,
         customBodyRender: (_, tableMeta) => {
           const service = services[tableMeta.rowIndex]
           return <CustomerIcon service={service} />
@@ -44,10 +57,16 @@ export const useServiceTableColumns = (
     {
       label: 'Device Name',
       name: 'device_name',
+      options: {
+        filter: false
+      }
     },
     {
       label: 'Operator Name',
       name: 'operator_name',
+      options: {
+        filter: false
+      }
     },
     {
       name: 'service_date',

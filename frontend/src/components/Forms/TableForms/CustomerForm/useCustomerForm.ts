@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from 'store/hooks';
-import { postCustomer } from 'store/actions/customerActions/postCustomer';
-import { updateCustomer } from 'store/actions/customerActions/updateCustomer';
+import { postCustomer } from 'store/actions/tableActions/customerActions/postCustomer';
+import { updateCustomer } from 'store/actions/tableActions/customerActions/updateCustomer';
 import { ICustomer } from '../../../../models/ICustomer';
 
 interface UseCustomerFormProps {

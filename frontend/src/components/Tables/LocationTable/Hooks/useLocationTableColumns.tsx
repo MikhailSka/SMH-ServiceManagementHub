@@ -14,10 +14,16 @@ export const useLocationTableColumns = (locations: any[]) => {
     {
       label: 'Name',
       name: 'name',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'Customer Name',
       name: 'customer_name',
+      options: {
+        filter: false,
+      },
     },
     {
       name: 'creation_date',

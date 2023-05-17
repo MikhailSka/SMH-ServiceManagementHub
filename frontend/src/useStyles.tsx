@@ -1,7 +1,7 @@
 import { makeStyles } from '@mui/styles'
 
 export const useStyles = makeStyles(() => ({
-  box: {
+  xlBox: {
     background: '#ffffff',
     maxWidth: '90%',
     minHeight: '150px',
@@ -18,7 +18,7 @@ export const useStyles = makeStyles(() => ({
     alignItems: 'center',
     height: '100%',
   },
-  registerBox: {
+  smBox: {
     boxShadow: '0px 3px 5px 2px rgba(0, 0, 0, 0.3)',
     borderRadius: 2,
     paddingLeft: 16,
@@ -30,6 +30,19 @@ export const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     alignItems: 'center',
     background: '#ffffff',
+  },
+  blur: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    background: 'rgba(255, 255, 255, 0.2)', 
+    backdropFilter: 'blur(5px)', 
+    zIndex:9999
   },
   loading: {
     textAlign: 'center',

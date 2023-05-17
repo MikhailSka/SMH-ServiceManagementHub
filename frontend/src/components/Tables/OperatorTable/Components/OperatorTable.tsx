@@ -4,7 +4,7 @@ import { Box } from '@mui/material'
 
 import { RootState } from '../../../../store/store'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { getOperators } from 'store/actions/operatorActions/getOperators'
+import { getOperators } from 'store/actions/tableActions/operatorActions/getOperators'
 import { useOperatorTableColumns } from '../Hooks/useOperatorTableColumns'
 import { LoadingTableBody } from '../../Common/LoadingTableBody'
 import { OperatorTableToolbar } from './OperatorTableToolbar'
@@ -31,7 +31,7 @@ const OperatorTable: React.FC = () => {
   )
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <MUIDataTable
         title={'Operators'}
         data={operators}

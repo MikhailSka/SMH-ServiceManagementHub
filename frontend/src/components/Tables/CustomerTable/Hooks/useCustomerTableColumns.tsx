@@ -14,10 +14,16 @@ export const useCustomerTableColumns = (customers: any[]) => {
     {
       label: 'Name',
       name: 'name',
+      options: {
+        filter: false,
+      },
     },
     {
       label: 'NIP',
       name: 'nip',
+      options: {
+        filter: false,
+      },
     },
     {
       name: 'creation_date',

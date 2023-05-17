@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { updatePost } from 'store/actions/postActions/updatePost';
-import { addPost } from 'store/actions/postActions/addPost';
+import { updatePost } from 'store/actions/tableActions/postActions/updatePost';
+import { addPost } from 'store/actions/tableActions/postActions/addPost';
 import { useAppDispatch } from 'store/hooks';
 import { useAppSelector } from 'store/hooks';
 import { IPost } from '../../../../models/IPost';

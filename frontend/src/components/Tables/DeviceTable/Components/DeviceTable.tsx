@@ -4,7 +4,7 @@ import { Box } from '@mui/material'
 
 import { RootState } from '../../../../store/store'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { getDevices } from 'store/actions/deviceActions/getDevices'
+import { getDevices } from 'store/actions/tableActions/deviceActions/getDevices'
 import { useDeviceTableColumns } from '../Hooks/useDeviceTableColumns'
 import { LoadingTableBody } from '../../Common/LoadingTableBody'
 import { DeviceTableToolbar } from './DeviceTableToolbar'
@@ -31,7 +31,7 @@ const DeviceTable: React.FC = () => {
   )
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <MUIDataTable
         title={'Devices'}
         data={devices}

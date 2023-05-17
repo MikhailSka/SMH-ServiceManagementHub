@@ -9,11 +9,11 @@ import { Box } from '@mui/material'
 
 import { RootState } from '../../../../store/store'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { getServices } from 'store/actions/serviceAvctions/getServices'
+import { getServices } from 'store/actions/tableActions/serviceAvctions/getServices'
 import { useStyles } from '../../../../useStyles'
 import { useServiceTableColumns } from '../Hooks/useServiceTableColumns'
 import { LoadingTableBody } from '../../Common/LoadingTableBody'
-import UnitHistoryTable from 'components/Tables/UnitHistoryTable/Components/UnitHistoryTable'
+import UnitHistoryTable from 'components/Tables/UnitHistoryTable'
 
 const ServiceTable: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -42,8 +42,8 @@ const ServiceTable: React.FC = () => {
     filterType: 'dropdown',
     responsive: 'standard',
     expandableRows: true,
-    expandableRowsHeader: false,
-    expandableRowsOnClick: true,
+    expandableRowsHeader: true,
+    expandableRowsOnClick: false,
     renderExpandableRow: (
       rowData: any[],
       rowMeta: { dataIndex: number; rowIndex: number }
@@ -60,7 +60,7 @@ const ServiceTable: React.FC = () => {
   }
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <MUIDataTable
         title={'Services'}
         data={services}

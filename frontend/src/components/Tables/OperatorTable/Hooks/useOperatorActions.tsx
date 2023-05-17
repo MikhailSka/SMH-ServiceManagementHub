@@ -1,7 +1,7 @@
 import { useAppDispatch } from 'store/hooks'
 import { IOperator } from 'models/IOperator'
 import { useDialogContext } from 'components/Dialogs/Context/useDialogContext'
-import { deleteOperator } from 'store/actions/operatorActions/deleteOperator'
+import { deleteOperator } from 'store/actions/tableActions/operatorActions/deleteOperator'
 import { OperatorForm } from 'components/Forms/TableForms/OperatorForm/OperatorForm'
 import { DeleteConfirmation } from 'components/Alerts/DeleteConfirmation'
 

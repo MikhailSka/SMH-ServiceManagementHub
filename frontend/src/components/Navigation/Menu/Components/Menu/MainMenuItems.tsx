@@ -3,7 +3,7 @@ import MenuItem from '@mui/material/MenuItem'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { toggleSideNavBar } from 'store/actions/sideNavBarActions/toggleSideNavBar'
+import { toggleSideNavBar } from 'store/actions/componentsActions/sideNavBarActions/toggleSideNavBar'
 
 export const MainMenuItems: React.FunctionComponent = () => {
   const dispatch = useAppDispatch()

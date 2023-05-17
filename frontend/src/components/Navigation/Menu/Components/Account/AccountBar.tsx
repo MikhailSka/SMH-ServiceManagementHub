@@ -6,7 +6,7 @@ import { AccountMenuItems } from './AccountMenuItems'
 import { useAppSelector, useAppDispatch } from 'store/hooks'
 import { AccountButton } from 'components/Buttons/Components/IconButtons/AccountButton'
 import { useMenuContext } from '../../Context/useMenuContext'
-import { logout as logoutAction } from 'store/actions/userActions/logout'
+import { logout as logoutAction } from 'store/actions/userActions/userLoginingActions/logout'
 import { RootState } from 'store/store'
 
 export const AccountBar: React.FC = () => {

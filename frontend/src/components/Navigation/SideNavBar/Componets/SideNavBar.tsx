@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch } from 'store/hooks'
 import { sideNavBarWidth } from './sideNavBarWidth'
 import { StyledSideNavBarHeader } from '../Styles/StyledSideNavBarHeader'
-import { toggleSideNavBar } from 'store/actions/sideNavBarActions/toggleSideNavBar'
+import { toggleSideNavBar } from 'store/actions/componentsActions/sideNavBarActions/toggleSideNavBar'
 import { sideNavBarOptions } from './sideNavBarOptions'
 
 interface SideNavBarProps {

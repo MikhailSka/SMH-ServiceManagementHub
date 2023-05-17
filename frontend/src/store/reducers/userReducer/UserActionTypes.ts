@@ -49,6 +49,11 @@ export interface UpdateUserEmailSuccessAction {
   }
 }
 
+export interface RefreshTokenSuccessAction {
+  type: 'REFRESH_TOKEN_SUCCESS'
+  payload: string
+}
+
 export type UserActionTypes =
   | LoginSuccessAction
   | LogoutSuccessAction
@@ -58,4 +63,5 @@ export type UserActionTypes =
   | UpdateUserNameSuccessAction
   | UpdateUserEmailSuccessAction
   | LoadUsersSuccessAction
-  | AddUserAction;
+  | AddUserAction
+  | RefreshTokenSuccessAction;

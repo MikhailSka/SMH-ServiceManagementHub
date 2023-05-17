@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form'
 import { useAppDispatch } from 'store/hooks'
-import { updateUserName } from 'store/actions/userActions/updateName'
+import { updateUserName } from 'store/actions/userActions/userProfileActions/updateName'
 
 interface NameFormInputs {
   name: string

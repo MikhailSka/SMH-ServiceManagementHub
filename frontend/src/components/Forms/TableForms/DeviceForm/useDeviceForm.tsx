@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from 'store/hooks';
-import { postDevice } from 'store/actions/deviceActions/postDevice';
-import { updateDevice } from 'store/actions/deviceActions/updateDevice';
+import { postDevice } from 'store/actions/tableActions/deviceActions/postDevice';
+import { updateDevice } from 'store/actions/tableActions/deviceActions/updateDevice';
 import { IDevice } from '../../../../models/IDevice';
 
 interface UseDeviceFormProps {

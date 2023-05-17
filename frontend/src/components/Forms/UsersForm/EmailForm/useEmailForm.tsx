@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form'
 import { useAppDispatch } from 'store/hooks'
-import { updateUserEmail } from 'store/actions/userActions/updateEmail'
+import { updateUserEmail } from 'store/actions/userActions/userProfileActions/updateEmail'
 
 import { UserData } from 'store/reducers/userReducer/UserState'
 

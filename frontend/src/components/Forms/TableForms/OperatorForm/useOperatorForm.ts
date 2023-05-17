@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from 'store/hooks';
-import { postOperator } from 'store/actions/operatorActions/postOperator';
-import { updateOperator } from 'store/actions/operatorActions/updateOperator';
+import { postOperator } from 'store/actions/tableActions/operatorActions/postOperator';
+import { updateOperator } from 'store/actions/tableActions/operatorActions/updateOperator';
 import { IOperator } from '../../../../models/IOperator';
 
 interface UseOperatorFormProps {

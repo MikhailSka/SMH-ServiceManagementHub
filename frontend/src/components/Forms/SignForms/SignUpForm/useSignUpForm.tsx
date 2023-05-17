@@ -2,7 +2,7 @@ import { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useAppDispatch } from 'store/hooks';
 import { useNavigate } from 'react-router-dom';
-import { register as registerAction } from 'store/actions/userActions/register';
+import { register as registerAction } from 'store/actions/userActions/userLoginingActions/register';
 
 interface SignUpFormInputs {
   email: string;

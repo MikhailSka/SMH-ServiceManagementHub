@@ -4,7 +4,7 @@ import { Box } from '@mui/material'
 
 import { RootState } from '../../../../store/store'
 import { useAppDispatch, useAppSelector } from 'store/hooks'
-import { getUnits } from 'store/actions/unitActions/getUnits'
+import { getUnits } from 'store/actions/tableActions/unitActions/getUnits'
 import { useUnitTableColumns } from '../Hooks/useUnitTableColumns'
 import { LoadingTableBody } from '../../Common/LoadingTableBody'
 import { UnitTableToolbar } from './UnitTableToolbar'
@@ -31,7 +31,7 @@ const UnitTable: React.FC = () => {
   )
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <MUIDataTable
         title={'Units'}
         data={units}
