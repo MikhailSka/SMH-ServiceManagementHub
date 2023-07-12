@@ -1,16 +1,16 @@
-import React from 'react';
-import { Typography, Grid } from '@mui/material';
+import React from 'react'
+import { Typography, Grid } from '@mui/material'
 
-import { NameForm } from 'components/Forms/UsersForm/NameForm/NameForm';
-import { EmailForm } from 'components/Forms/UsersForm/EmailForm/EmailForm';
+import { NameForm } from 'components/Forms/UsersForm/NameForm/NameForm'
+import { EmailForm } from 'components/Forms/UsersForm/EmailForm/EmailForm'
 
 interface ProfileInfoProps {
-  userData: any;
+  userData: any
 }
 
 const ProfileInfo: React.FC<ProfileInfoProps> = ({ userData }) => {
   return (
-    <Grid item xs={12} md={7}>
+    <Grid item xs={12} md={5} maxWidth={5}>
       <Typography
         sx={{
           textAlign: 'center',
@@ -22,7 +22,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({ userData }) => {
       <NameForm userData={userData} />
       <EmailForm userData={userData} />
     </Grid>
-  );
-};
+  )
+}
 
-export default ProfileInfo;
+export default ProfileInfo

@@ -22,8 +22,8 @@ export const EmailForm: React.FC<EmailFormProps> = ({ userData }) => {
 
   return (
     <Box component="form" onSubmit={handleSubmitEmail(onSubmitEmail)} noValidate>
-      <Grid container alignItems="center" margin="15px" spacing={2}>
-        <Grid padding="4px 0 5px" item xs={10}>
+      <Grid container alignItems="center" margin="auto" marginY='15px' spacing={2} sx={{display:'-webkit-inline-flex'}}>
+        <Grid padding="4px 0 5px" item xs={7}>
           <EmailInput control={controlEmail} errors={errorsEmail} register={registerEmail} />
         </Grid>
         <Grid item xs={2}>

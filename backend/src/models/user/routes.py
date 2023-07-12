@@ -191,7 +191,7 @@ def login():
         return jsonify({"error": "Invalid email or password"}), 401
 
     access_token = create_access_token(identity=user.email,expires_delta=timedelta(
-        minutes=6), additional_claims={"id": user.id})
+        hours=8), additional_claims={"id": user.id})
     refresh_token = create_refresh_token(identity=user.email,expires_delta=timedelta(
         hours=1))
     
@@ -199,13 +199,10 @@ def login():
     set_access_cookies(resp, access_token)
     return resp, 200
 
-
 @user.route('/refresh', methods=['POST'])
 @jwt_required(refresh=True)
 def refresh():
     current_user = get_jwt_identity()
     access_token = create_access_token(identity=current_user)
-    
     resp = jsonify({'access_token': access_token})
-    set_access_cookies(resp, access_token)
     return resp, 200

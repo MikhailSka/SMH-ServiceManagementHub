@@ -36,14 +36,14 @@ export const UnitForm: React.FC<FormProps> = ({ unit }) => {
             <NameInput control={control} errors={errors} register={register} />
           </Grid>
           <Grid item xs={12}>
-            <SerialNumberInput
+            <ProductCodeInput
               control={control}
               errors={errors}
               register={register}
             />
           </Grid>
           <Grid item xs={12}>
-            <ProductCodeInput
+            <SerialNumberInput
               control={control}
               errors={errors}
               register={register}

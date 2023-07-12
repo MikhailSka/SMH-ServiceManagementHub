@@ -11,7 +11,7 @@ export default function Settings() {
   const { userData } = useAppSelector((state: RootState) => state.user);
 
   return (
-    <Box className={classes.box}>
+    <Box className={classes.xlBox}>
       <Typography
         variant="h4"
         component="h1"

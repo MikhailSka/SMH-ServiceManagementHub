@@ -26,7 +26,7 @@ const UnitPage = React.lazy(() => import('pages/admin/UnitPage'))
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<BackgroundLayout />}>
+      <Route element={<BackgroundLayout />}>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SingUpPage />} />
         <Route path="/" element={<NavigationLayout />}>

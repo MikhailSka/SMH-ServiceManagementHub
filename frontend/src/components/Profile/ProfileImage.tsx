@@ -6,18 +6,17 @@ import { useImageUpload } from '../../hooks/useImageUpload'
 import { useRemoveImage } from '../../hooks/useRemoveImage'
 import { UploadButton } from 'components/Buttons/Components/TextButtons/UploadButton'
 import { DeleteButton } from 'components/Buttons/Components/TextButtons/DeleteButton'
-import { UserData } from 'store/reducers/userReducer/UserState'
-
+import { IUser } from 'models/IUser'
 interface ProfileImageProps {
-  userData: UserData
+  userData: IUser
 }
 
 const ProfileImage: React.FC<ProfileImageProps> = ({ userData }) => {
-  const handleImageUpload = useImageUpload(userData.id)
-  const handleRemoveImage = useRemoveImage(userData.id)
+  const handleImageUpload = useImageUpload(userData.id!)
+  const handleRemoveImage = useRemoveImage(userData.id!)
 
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={6}>
       <Typography
         sx={{
           textAlign: 'center',

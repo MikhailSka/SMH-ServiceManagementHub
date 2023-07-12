@@ -5,9 +5,9 @@ import { UnitState } from './UnitState';
 
 const initialState: UnitState = {
   units: [],
-  selectedUnit: null,
   isLoading: false,
   error: null,
+  totalUnits: 0
 };
 
 const unitSlice = createSlice({
@@ -18,16 +18,15 @@ const unitSlice = createSlice({
       state.isLoading = true;
       state.error = null;
     },
-    getUnitsSuccess(state, action: PayloadAction<IUnit[]>) {
+    getUnitsSuccess(state, action: PayloadAction<{ data: IUnit[]; total: number }>) {
       state.isLoading = false;
-      state.units = action.payload;
+      console.log(action.payload.data)
+      state.units = action.payload.data
+      state.totalUnits = action.payload.total;
     },
     getUnitsFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
       state.error = action.payload;
-    },
-    selectUnit(state, action: PayloadAction<IUnit>) {
-      state.selectedUnit = action.payload;
     },
   },
 });
@@ -35,8 +34,7 @@ const unitSlice = createSlice({
 export const {
   getUnitsStart,
   getUnitsSuccess,
-  getUnitsFailure,
-  selectUnit,
+  getUnitsFailure
 } = unitSlice.actions;
 
 export default unitSlice.reducer;

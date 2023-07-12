@@ -1,6 +1,8 @@
 from flask import request, Blueprint, jsonify
 from flask_jwt_extended import jwt_required
+from sqlalchemy import asc, desc, or_
 from datetime import datetime
+import json
 
 from ...db import db
 from .Unit import Unit
@@ -12,9 +14,58 @@ unit = Blueprint('unit', __name__, url_prefix='/unit')
 @unit.route('/get', methods=['GET'])
 @jwt_required()
 def get_units():
-    all_units = UnitView.query.all()
-    result = units_view_schema.dump(all_units)
-    return jsonify(result)
+    page = request.args.get('page', 0, type=int)
+    page_size = request.args.get('page_size', 10, type=int)
+    search_query = request.args.get('search', '', type=str)
+    sort_field = request.args.get('sortField', 'id', type=str) 
+    sort_order = request.args.get('sortOrder', 'asc', type=str) 
+
+    search_date = None
+    try:
+        search_date = datetime.strptime(search_query, "%Y-%m-%d %H:%M:%S")
+    except ValueError:
+        pass
+
+    filterList = request.args.get('filters', '{}', type=str)
+    filterList = json.loads(filterList)
+
+    all_units = UnitView.query
+
+    if filterList:
+        for field, values in filterList.items():
+            all_units = all_units.filter(getattr(UnitView, field).in_(values))
+
+    if search_query:
+        all_units = all_units.filter(
+            or_(
+                UnitView.name.ilike(f'%{search_query}%'),
+                UnitView.serial_number.ilike(f'%{search_query}%'),
+                UnitView.product_code.ilike(f'%{search_query}%'),
+                UnitView.location_name.ilike(f'%{search_query}%'),
+                UnitView.device_name.ilike(f'%{search_query}%'),
+                UnitView.operator_name.ilike(f'%{search_query}%'),
+                UnitView.description.ilike(f'%{search_query}%'),
+                UnitView.creation_date == search_date,
+                UnitView.modification_date == search_date,
+                UnitView.service_date == search_date
+            )
+        )
+
+    if sort_field is not None and sort_field != '' and sort_field != 'null':
+        if sort_order == 'asc':
+            all_units = all_units.order_by(asc(getattr(UnitView, sort_field)))
+        elif sort_order == 'desc':
+            all_units = all_units.order_by(desc(getattr(UnitView, sort_field)))
+
+    paginated_units = all_units.paginate(page=page, per_page=page_size, error_out=False)
+
+    result = units_view_schema.dump(paginated_units.items)
+
+    return jsonify({
+        'data': result,
+        'total': paginated_units.total
+    })
+
 
 @unit.route('/get/<id>', methods=['GET'])
 @jwt_required()

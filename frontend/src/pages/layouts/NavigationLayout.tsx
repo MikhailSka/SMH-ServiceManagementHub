@@ -8,10 +8,9 @@ import { StyledSideNavBarHeader } from 'components/Navigation/SideNavBar/Styles/
 import { SMHNavBar } from 'components/Navigation/NavigationBar/Componets/NavBar'
 import { SideNavBar } from 'components/Navigation/SideNavBar/Componets/SideNavBar'
 import { RootState } from 'store/store'
-import { RefreshTokenAlert } from 'components/Alerts/RefreshTokenAlert';
+import { RefreshTokenAlert } from 'components/Alerts/RefreshTokenAlert'
 
 export function NavigationLayout() {
-
   const drawerOpen = useSelector(
     (state: RootState) => state.sideNavBar.drawerOpen
   )
@@ -19,13 +18,15 @@ export function NavigationLayout() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <SMHNavBar open={drawerOpen}/>
+      <SMHNavBar open={drawerOpen} />
       <SideNavBar open={drawerOpen} />
       <Main open={drawerOpen}>
         <DialogProvider>
-        <RefreshTokenAlert/></DialogProvider>
-        <StyledSideNavBarHeader/>
-        <Outlet />
+          <RefreshTokenAlert />
+        </DialogProvider>
+        <StyledSideNavBarHeader />
+        <Box sx ={{display: 'grid'}}>
+        <Outlet /></Box>
       </Main>
     </Box>
   )

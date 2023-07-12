@@ -39,8 +39,6 @@ const ServiceTable: React.FC = () => {
   const options: MUIDataTableOptions = {
     filter: true,
     selectableRows: 'none',
-    filterType: 'dropdown',
-    responsive: 'standard',
     expandableRows: true,
     expandableRowsHeader: true,
     expandableRowsOnClick: false,

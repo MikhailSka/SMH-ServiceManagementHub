@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Box, Button, Container, Typography, Grid } from '@mui/material'
 
+import { refreshToken } from 'store/actions/userActions/userLoginingActions/refreshToken'
+import { useAppDispatch } from 'store/hooks'
 import { isTokenAboutToExpire } from 'security/isTokenAboutToExpire'
 import { useStyles } from '../../useStyles'
 
 export const RefreshTokenAlert: React.FC = () => {
   const classes = useStyles()
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [timeLeft, setTimeLeft] = useState<number | null>(null)
 
-  const refreshToken = () => {
+  const handleRefresh = () => {
     setTimeLeft(null)
+    dispatch(refreshToken())
+  }
+
+  const handleLogout = () => {
+    navigate('/login')
   }
 
   useEffect(() => {
@@ -36,16 +44,12 @@ export const RefreshTokenAlert: React.FC = () => {
           prevTimeLeft !== null ? prevTimeLeft - 1 : null
         )
       }, 1000)
+    }else if (timeLeft === 0) {
+      handleLogout()
     }
 
     return () => clearInterval(countdown)
   }, [timeLeft])
-
-  useEffect(() => {
-    if (timeLeft === 0) {
-      navigate('/login')
-    }
-  }, [timeLeft, navigate])
 
   if (timeLeft === null) {
     return null
@@ -79,7 +83,7 @@ export const RefreshTokenAlert: React.FC = () => {
           </Grid>
           <Grid container spacing={1} padding={1} justifyContent="flex-end">
             <Grid item>
-              <Button variant="contained" color="error" onClick={refreshToken}>
+              <Button variant="contained" color="error" onClick={handleLogout}>
                 Logout
               </Button>
             </Grid>
@@ -87,7 +91,7 @@ export const RefreshTokenAlert: React.FC = () => {
               <Button
                 variant="contained"
                 color="primary"
-                onClick={refreshToken}
+                onClick={handleRefresh}
               >
                 Continue Session
               </Button>

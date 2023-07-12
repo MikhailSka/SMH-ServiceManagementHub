@@ -3,11 +3,11 @@ import { makeStyles } from '@mui/styles'
 export const useStyles = makeStyles(() => ({
   xlBox: {
     background: '#ffffff',
-    maxWidth: '90%',
+    minWidth: '99%',
     minHeight: '150px',
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: '5%',
+    marginTop: '1%',
     overflow: 'auto',
     boxShadow:
       'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px',

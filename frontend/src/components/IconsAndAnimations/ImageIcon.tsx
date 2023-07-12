@@ -1,11 +1,11 @@
 import React from 'react';
 import { Avatar } from '@mui/material';
 
-import { UserData } from 'store/reducers/userReducer/UserState';
+import { IUser } from 'models/IUser';
 import { stringAvatar } from '../../hooks/stringAvatar';
 
 interface ProfileImageProps {
-  userData: UserData
+  userData: IUser
 }
 
 export const ImageIcon: React.FC<ProfileImageProps> = ({ userData }) => {
